@@ -29,20 +29,20 @@
 
 {% for i in article %}
 
-<div class="col-lg-8 top-post-left">
+<div class="col-lg-8 top-post-left" style="margin-top: 1px;">
 
 
 
 <div class="feature-image-thumb relative">
 <div class="overlay overlay-bg"></div>
-<img class="img-fluid" src="image" alt="" data-pagespeed-url-hash="4222329640" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+<img class="img-fluid" src="{{ i.image.url }}" alt="" data-pagespeed-url-hash="4222329640" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
 </div>
 <div class="top-post-details">
 <ul class="tags">
 <li><a href="https://preview.colorlib.com/theme/magazine/#">Food Habit</a></li>
 </ul>
-<a href="https://preview.colorlib.com/theme/magazine/image-post.html">
-<h3>{{i.title}}</h3>
+<a href="{{i.get_absolute_url}}">
+<h3>{{i.title|truncatechars:40}}</h3>
 </a>
 <ul class="meta">
 <li><a href="https://preview.colorlib.com/theme/magazine/#"><span class="lnr lnr-user"></span>{{i.owner}}</a></li>
@@ -60,51 +60,66 @@
 
 
 
+<div class="col-lg-4 top-post-right" style="margin-top: -10px; ">
+
+
 {% for i in article2 %}
-<div class="col-lg-4 top-post-right">
-<div class="single-top-post">
+
+
+<div class="single-top-post mt-10" >
+    <div class="feature-image-thumb relative">
+    <div class="overlay overlay-bg"></div>
+    <img class="img-fluid" src="{{ i.image.url }}" alt="" data-pagespeed-url-hash="516362186" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+    </div>
+    <div class="top-post-details">
+    <ul class="tags">
+    <li><a href="https://preview.colorlib.com/theme/magazine/#">Food Habit</a></li>
+    </ul>
+    <a href="{{i.get_absolute_url}}">
+    <h4>{{ i.title|truncatechars:40 }} </h4>
+    </a>
+    <ul class="meta">
+    <li><a href="https://preview.colorlib.com/theme/magazine/#"><span class="lnr lnr-user"></span>{{ i.owner }}</a></li>
+    <li><a href="https://preview.colorlib.com/theme/magazine/#"><span class="lnr lnr-calendar-full"></span>{{ i.created_at }}</a></li>
+    <li><a href="https://preview.colorlib.com/theme/magazine/#"><span class="lnr lnr-bubble"></span>06 Comments</a></li>
+    </ul>
+    </div>
+    </div>
+
+
+{% endfor %}
+
+
+
+{% for i in article3 %}
+
+<div class="single-top-post mt-10" >
 <div class="feature-image-thumb relative">
 <div class="overlay overlay-bg"></div>
-<img class="img-fluid" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" alt="" data-pagespeed-url-hash="221862265" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+<img class="img-fluid" src="{{ i.image.url }}" alt="" data-pagespeed-url-hash="516362186" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
 </div>
 <div class="top-post-details">
 <ul class="tags">
 <li><a href="https://preview.colorlib.com/theme/magazine/#">Food Habit</a></li>
 </ul>
-<a href="https://preview.colorlib.com/theme/magazine/image-post.html">
-<h4>{{ i.title }}</h4>
+<a href="{{i.get_absolute_url}}">
+<h4>{{ i.title|truncatechars:40 }} </h4>
 </a>
 <ul class="meta">
 <li><a href="https://preview.colorlib.com/theme/magazine/#"><span class="lnr lnr-user"></span>{{ i.owner }}</a></li>
 <li><a href="https://preview.colorlib.com/theme/magazine/#"><span class="lnr lnr-calendar-full"></span>{{ i.created_at }}</a></li>
 <li><a href="https://preview.colorlib.com/theme/magazine/#"><span class="lnr lnr-bubble"></span>06 Comments</a></li>
 </ul>
-</div>
-</div>
-
-
-<div class="single-top-post mt-10">
-<div class="feature-image-thumb relative">
-<div class="overlay overlay-bg"></div>
-<img class="img-fluid" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" alt="" data-pagespeed-url-hash="516362186" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
-</div>
-<div class="top-post-details">
-<ul class="tags">
-<li><a href="https://preview.colorlib.com/theme/magazine/#">Food Habit</a></li>
-</ul>
-<a href="https://preview.colorlib.com/theme/magazine/image-post.html">
-<h4>{{ i.title }}</h4>
-</a>
-<ul class="meta">
-<li><a href="https://preview.colorlib.com/theme/magazine/#"><span class="lnr lnr-user"></span>{{ i.owner }}</a></li>
-<li><a href="https://preview.colorlib.com/theme/magazine/#"><span class="lnr lnr-calendar-full"></span>{{ i.created_at }}</a></li>
-<li><a href="https://preview.colorlib.com/theme/magazine/#"><span class="lnr lnr-bubble"></span>06 Comments</a></li>
-</ul>
-</div>
 </div>
 </div>
 
 {% endfor %}
+
+
+
+
+</div> 
+
 
 
 
@@ -118,7 +133,11 @@
 <h6><span>Breaking News:</span> <a href="https://preview.colorlib.com/theme/magazine/#">Astronomy Binoculars A Great Alternative</a></h6>
 </div>
 </div>
+
 </div>
+
+
+
 </div>
 </section>
 
