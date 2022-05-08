@@ -41,7 +41,7 @@
     <div class="col-lg-8 post-list">
     
     <div class="latest-post-wrap">
-    <h4 class="cat-title">Latest News</h4>
+    <h4 class="cat-title">All News</h4>
     {% for i in news %}
     <div class="single-latest-post row align-items-center">
     <div class="col-lg-5 post-left">
@@ -57,7 +57,7 @@
 
 
     <div class="col-lg-7 post-right">
-    <a href="https://preview.colorlib.com/theme/magazine/image-post.html">
+    <a href="{{i.get_absolute_url}}">
     <h4>{{ i.title }}</h4>
     </a>
     <ul class="meta">
@@ -80,9 +80,36 @@
 
 
 
-    <div class="load-more">
+  <nav aria-label="Page navigation example" style="margin-top: 25px;">
+    <ul class="pagination justify-content-center">
+        <li class="page-item ">
+          {% if page_obj.has_previous %}
+        <a class="page-link" href="?page={{ page_obj.previous_page_number }}" >Previous</a>
+        {% endif %}
+    </li>
+
+      <li class="page-item"><span class="page-link" >{{ page_obj.number }}</span></li>
+      <span style="margin-right: 7px; margin-left: 7px; margin-top: 5px;">of</span>
+      <li class="page-item"><span class="page-link" >{{ page_obj.paginator.num_pages }}</span></li> 
+      <li class="page-item">
+        {% if page_obj.has_next %}
+
+        <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+        {% endif %}
+
+      </li>
+    </ul>
+  </nav>
+
+
+
+
+
+    <!-- <div class="load-more">
     <a href="https://preview.colorlib.com/theme/magazine/archive.html#" class="primary-btn">Load More Posts</a>
-    </div>
+    </div> -->
+
+
     </div>
     
     </div>
