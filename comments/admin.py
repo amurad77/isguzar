@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ArticleComments, NewsComments
+from .models import ArticleComments, NewsComments, Subscribe
 # Register your models here.
 
 
@@ -24,3 +24,5 @@ class NewsCommentAdmin(admin.ModelAdmin):
     search_fields = ('name', 'created_at', 'approved_comment')
 
 admin.site.register (NewsComments, NewsCommentAdmin)
+
+admin.site.register(Subscribe)

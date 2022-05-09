@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import News, Subscribe
+from .models import News
 # Register your models here.
 
 
@@ -11,5 +11,3 @@ class NewsAdmin(admin.ModelAdmin):
 admin.site.register (News, NewsAdmin)
 
 
-
-admin.site.register(Subscribe)

@@ -25,6 +25,7 @@ from core.views import (
     
 )
 from article.views import (
+    home,
     article,
     article_detail,
     search,

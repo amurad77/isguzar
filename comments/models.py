@@ -40,8 +40,6 @@ class ArticleComments(models.Model):
 
 
 
-
-
 class NewsComments(models.Model):
     # relation
     news = models.ForeignKey(News,on_delete=models.CASCADE,db_index=True,related_name="comment")
@@ -67,3 +65,17 @@ class NewsComments(models.Model):
 
     def __str__(self):
         return self.name
+
+
+
+class Subscribe(models.Model):
+    # information
+    email = models.CharField('Mail', max_length = 50, unique=True)
+
+
+    # moderations
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.email

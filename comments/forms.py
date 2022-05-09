@@ -1,6 +1,6 @@
 from django import forms
 from comments.models import ArticleComments, NewsComments
-
+from comments.models import Subscribe
 
 class ArticleCommentForm(forms.ModelForm):
     class Meta:
@@ -70,4 +70,26 @@ class NewsCommentForm(forms.ModelForm):
                                 'id' : 'email',
                                 'placeholder' : 'Messege',
                                 })
+        }
+
+
+
+
+
+class SubscribeForm(forms.ModelForm):
+    class Meta:
+        model = Subscribe
+
+        fields = (
+            'email',
+        )
+
+        widgets = {
+
+            'email' : forms.EmailInput(attrs = {
+                                'class' : 'form-control',
+                                'id' : 'value_remove',
+                                'placeholder' : 'Enter email address',
+                                })
+                   
         }

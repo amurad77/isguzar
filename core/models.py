@@ -14,15 +14,6 @@ User = get_user_model()
 
 
 
-class Subscribe(models.Model):
-    # information
-    mail = mail = models.CharField('Mail', max_length = 50)
-
-    # moderations
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-
 class News(models.Model):
     # relation
     owner =  models.ForeignKey(User, on_delete=models.CASCADE, related_name='news')
@@ -58,10 +49,10 @@ class News(models.Model):
         self.slug = self.get_uniqe_slug()
         return super(News, self).save(*args, **kwargs)
 
-    def add_view_count(self):
-        self.views +=3
-        self.save()
-        return True
+    # def add_view_count(self):
+    #     self.views +=3
+    #     self.save()
+    #     return True
 
 
 

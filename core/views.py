@@ -5,11 +5,25 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from article.models import Article
 from django.db.models import Q
-from comments.forms import NewsCommentForm
+from comments.forms import NewsCommentForm, SubscribeForm
 from django.contrib.auth.decorators import login_required
+# from core.forms import SubscribeForm
 # Create your views here.
 
 def home(request):
+
+    form = SubscribeForm()
+
+    if request.method == 'POST':
+        subscribe_data = request.POST
+        form = SubscribeForm(data = subscribe_data)
+        if form.is_valid():
+            form.save()
+            print('Form save')
+        else:
+            print('Form is invalid')
+
+
     query = request.GET.get('q')
     querylist = News.objects.all()
 
@@ -17,13 +31,20 @@ def home(request):
     news2 = News.objects.all().order_by('-id')[1:] [:1]
     news3 = News.objects.all().order_by('-id') [2:] [:1]
     article = Article.objects.all().order_by('-id')[0:] [:5]
+    popular_list1 = Article.objects.all().order_by('-views', '-id')[:1]
+    popular_list2 = Article.objects.all().order_by('-views', '-id')[1:] [:1]
+    popular_list3 = Article.objects.all().order_by('-views', '-id')[2:] [:1]
 
 
     context = {
         'news' : news,
         'news2' : news2,
         'news3' : news3,
-        'article' : article
+        'article' : article,
+        'popular_list1' : popular_list1,
+        'popular_list2' : popular_list2,
+        'popular_list3' : popular_list3,
+        'form' : form,
 
     }
     return render(request, 'index.html', context)
@@ -32,13 +53,9 @@ def home(request):
 
 
 
-
-
-
-
-
 def news_detail(request, slug):
     news = get_object_or_404(News, slug = slug)
+    article = get_object_or_404(Article, slug = slug)
     form = NewsCommentForm(request.POST or None)
 
     if form.is_valid():
@@ -46,6 +63,11 @@ def news_detail(request, slug):
         comment.news = news
         comment.save()
         return HttpResponseRedirect(news.get_absolute_url())
+
+
+    views = news.views
+    views += 1
+    degis = News.objects.filter(slug = slug).update(views = views)
 
     context = {
         'news' : news,

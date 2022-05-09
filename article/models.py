@@ -47,7 +47,7 @@ class Article(models.Model):
         self.slug = self.get_uniqe_slug()
         return super(Article, self).save(*args, **kwargs)
 
-    def add_view_count(self):
-        self.views +=3
-        self.save()
-        return True
+    # def add_view_count(self):
+    #     self.views +=3
+    #     self.save()
+    #     return True

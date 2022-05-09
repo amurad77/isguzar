@@ -200,79 +200,131 @@
 
 
 <div class="popular-post-wrap">
-<h4 class="title">Popular Posts</h4>
+<h4 class="title">Ən çox oxunan məqalələr</h4>
+
+{% for item in popular_list1 %}
+
 <div class="feature-post relative">
 <div class="feature-img relative">
 <div class="overlay overlay-bg"></div>
-<img class="img-fluid" src="../static/images/f1.jpg" alt="" data-pagespeed-url-hash="3036699310" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+<img class="img-fluid" src="{{ item.image.url }}" alt="" data-pagespeed-url-hash="3036699310" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
 </div>
 <div class="details">
 <ul class="tags">
 <li><a href="https://preview.colorlib.com/theme/magazine/#">Food Habit</a></li>
 </ul>
-<a href="https://preview.colorlib.com/theme/magazine/image-post.html">
-<h3>A Discount Toner Cartridge Is Better Than Ever.</h3>
+<a href="{{item.get_absolute_url}}">
+<h3>{{ item.title }}</h3>
 </a>
 <ul class="meta">
-    <li><a href="https://preview.colorlib.com/theme/magazine/#"><i style="margin-right: 6px;" class="fa-solid fa-user"></i>user</a></li>
-    <li><a href="https://preview.colorlib.com/theme/magazine/#"><i style="margin-right: 6px;" class="fa-solid fa-calendar-days"></i>12 may 2022</a></li>
-    <li><a href="https://preview.colorlib.com/theme/magazine/#"><i style="margin-right: 6px;" class="fa-solid fa-comment"></i>06 Comments</a></li>
+    <li><a href="https://preview.colorlib.com/theme/magazine/#"><i style="margin-right: 6px;" class="fa-solid fa-user"></i>{{item.owner}}</a></li>
+    <li><a href="https://preview.colorlib.com/theme/magazine/#"><i style="margin-right: 6px;" class="fa-solid fa-calendar-days"></i>{{item.created_at}}</a></li>
+    <li><a href="https://preview.colorlib.com/theme/magazine/#"><i style="margin-right: 6px;" class="fa-solid fa-comment"></i>{{item.views}}</a></li>
     </ul>
 </div>
 </div>
+
+{% endfor %}
+
+
+
+
 <div class="row mt-20 medium-gutters">
+    {% for item in popular_list2 %}
+
+    
 <div class="col-lg-6 single-popular-post">
 <div class="feature-img-wrap relative">
 <div class="feature-img relative">
 <div class="overlay overlay-bg"></div>
-<img class="img-fluid" src="../static/images/f2.jpg" alt="" data-pagespeed-url-hash="3331199231" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+<img class="img-fluid" src="{{ item.image.url }}" alt="" data-pagespeed-url-hash="3331199231" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
 </div>
 <ul class="tags">
 <li><a href="https://preview.colorlib.com/theme/magazine/#">Travel</a></li>
 </ul>
 </div>
 <div class="details">
-<a href="https://preview.colorlib.com/theme/magazine/image-post.html">
-<h4>A Discount Toner Cartridge Is
-Better Than Ever.</h4>
+<a style="max-width: 50px !important;" href="{{item.get_absolute_url}}">
+<h4 >{{ item.title|truncatechars:30 }}</h4>
 </a>
 <ul class="meta">
-    <li><a href="https://preview.colorlib.com/theme/magazine/#"><i style="margin-right: 6px;" class="fa-solid fa-user"></i>user</a></li>
-    <li><a href="https://preview.colorlib.com/theme/magazine/#"><i style="margin-right: 6px;" class="fa-solid fa-calendar-days"></i>12 may 2022</a></li>
-    <li><a href="https://preview.colorlib.com/theme/magazine/#"><i style="margin-right: 6px;" class="fa-solid fa-comment"></i>06 Comments</a></li>
+    <li><a href="https://preview.colorlib.com/theme/magazine/#"><i style="margin-right: 6px;" class="fa-solid fa-user"></i>{{item.owner}}</a></li>
+    <li><a href="https://preview.colorlib.com/theme/magazine/#"><i style="margin-right: 6px;" class="fa-solid fa-calendar-days"></i>{{ item.created_at }}</a></li>
+    <li><a href="https://preview.colorlib.com/theme/magazine/#"><i style="margin-right: 6px;" class="fa-solid fa-comment"></i>{{item.views}}</a></li>
     </ul>
 <p class="excert">
-Lorem ipsum dolor sit amet, consecteturadip isicing elit, sed do eiusmod tempor incididunt ed do eius.
+{{item.descrtiption|truncatechars:150}}
 </p>
 </div>
 </div>
+{% endfor %}
+
+
+
+{% for item in popular_list3 %}
+
+
 <div class="col-lg-6 single-popular-post">
 <div class="feature-img-wrap relative">
 <div class="feature-img relative">
 <div class="overlay overlay-bg"></div>
-<img class="img-fluid" src="../static/images/f3.jpg" alt="" data-pagespeed-url-hash="3625699152" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+<img class="img-fluid" src="{{ item.image.url }}" alt="" data-pagespeed-url-hash="3625699152" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
 </div>
 <ul class="tags">
 <li><a href="https://preview.colorlib.com/theme/magazine/#">Travel</a></li>
 </ul>
 </div>
 <div class="details">
-<a href="https://preview.colorlib.com/theme/magazine/image-post.html">
-<h4>A Discount Toner Cartridge Is
-Better Than Ever.</h4>
+<a href="{{item.get_absolute_url}}">
+<h4>{{ item.title|truncatechars:30 }}</h4>
 </a>
 <ul class="meta">
-    <li><a href="https://preview.colorlib.com/theme/magazine/#"><i style="margin-right: 6px;" class="fa-solid fa-user"></i>user</a></li>
-    <li><a href="https://preview.colorlib.com/theme/magazine/#"><i style="margin-right: 6px;" class="fa-solid fa-calendar-days"></i>12 may 2022</a></li>
-    <li><a href="https://preview.colorlib.com/theme/magazine/#"><i style="margin-right: 6px;" class="fa-solid fa-comment"></i>06 Comments</a></li>
+    <li><a href="https://preview.colorlib.com/theme/magazine/#"><i style="margin-right: 6px;" class="fa-solid fa-user"></i>{{item.owner}}</a></li>
+    <li><a href="https://preview.colorlib.com/theme/magazine/#"><i style="margin-right: 6px;" class="fa-solid fa-calendar-days"></i>{{ item.created_at }}</a></li>
+    <li><a href="https://preview.colorlib.com/theme/magazine/#"><i style="margin-right: 6px;" class="fa-solid fa-comment"></i>{{item.views}}</a></li>
     </ul>
 <p class="excert">
-Lorem ipsum dolor sit amet, consecteturadip isicing elit, sed do eiusmod tempor incididunt ed do eius.
-</p>
+    {{item.descrtiption|truncatechars:150}}</p>
 </div>
 </div>
+{% endfor %}
+
+
+
+
+
 </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <div class="relavent-story-post-wrap mt-30">
@@ -356,6 +408,11 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 </div>
 </div>
 
+
+
+
+
+
 </div>
 <div class="col-lg-4">
 <div class="sidebars-area">
@@ -434,6 +491,14 @@ Development </h6></a>
 <div class="single-sidebar-widget ads-widget">
 <img class="img-fluid" src="../static/images/sidebar-ads.jpg" alt="" data-pagespeed-url-hash="3321942762" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
 </div>
+
+
+
+
+
+
+
+
 <div class="single-sidebar-widget newsletter-widget">
 <h6 class="title">Newsletter</h6>
 <p>
@@ -441,18 +506,33 @@ Here, I focus on a range of items
 andfeatures that we use in life without
 giving them a second thought.
 </p>
+<form action="" method="POST">
+{% csrf_token %}
+
 <div class="form-group d-flex flex-row">
 <div class="col-autos">
 <div class="input-group">
-<input class="form-control" placeholder="Email Address" onfocus="this.placeholder = &#39;&#39;" onblur="this.placeholder = &#39;Email Address&#39;" type="text">
+    {{ form.email }}
+<!-- <input class="form-control" placeholder="Email Address" onfocus="this.placeholder = &#39;&#39;" onblur="this.placeholder = &#39;Email Address&#39;" type="text"> -->
 </div>
 </div>
-<a href="https://preview.colorlib.com/theme/magazine/#" class="bbtns">Subcribe</a>
+<button type="submit" class="primary-btn text-uppercase">Göndər</button>
+
+<!-- <a href="https://preview.colorlib.com/theme/magazine/#" class="bbtns">Subcribe</a> -->
 </div>
+</form>
 <p>
 You can unsubscribe us at any time
 </p>
 </div>
+
+
+
+
+
+
+
+
 <div class="single-sidebar-widget most-popular-widget">
 <h6 class="title">Most Popular</h6>
 <div class="single-list flex-row d-flex">
@@ -556,7 +636,6 @@ Development </h6>
 </section>
 
 </div>
-
 
 
 <script src="{% static 'js/jquery-2.2.4.min.js' %}"></script>

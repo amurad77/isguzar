@@ -20,6 +20,11 @@ def article_detail(request, slug):
         comment.save()
         return HttpResponseRedirect(article.get_absolute_url())
 
+
+    views = article.views
+    views += 1
+    degis = Article.objects.filter(slug = slug).update(views = views)
+
     context = {
         'article' : article,
         'form' : form,
@@ -50,6 +55,7 @@ def add_comment_to_post(request, pk):
 
 def home(request):
     home = Article.objects.all().order_by('-id') [2:] [:1]
+    popular_list = Article.objects.all().order_by('-views', '-id')[:1]
 
 
     context = {
