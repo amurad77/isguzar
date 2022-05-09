@@ -20,13 +20,26 @@ from django.urls import path
 from core.views import (
     home,
     news_detail,
-    news
-
+    news,
+    searchbar
+    
+)
+from article.views import (
+    article,
+    article_detail,
+    search,
+    
 )
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', home),
-    path('newsdetail/<slug:slug>/', news_detail, name = 'detail'),
+    path('news_detail/<slug:slug>/', news_detail, name = 'detail_news'),
     path('news/', news),
+    path('article/', article),
+    path('article_detail/<slug:slug>/', article_detail, name = 'article_detail'),
+    path('search/', search),
+    path('searchbar/', searchbar, name = 'searchbar'),
+
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
