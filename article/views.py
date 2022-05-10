@@ -53,16 +53,16 @@ def add_comment_to_post(request, pk):
 
 
 
-def home(request):
-    home = Article.objects.all().order_by('-id') [2:] [:1]
-    popular_list = Article.objects.all().order_by('-views', '-id')[:1]
+# def home(request):
+#     home = Article.objects.all().order_by('-id') [2:] [:1]
+#     popular_list = Article.objects.all().order_by('-views', '-id')[:1]
 
 
-    context = {
-        'article' : article,
+#     context = {
+#         'article' : article,
 
-    }
-    return render(request, 'index.html', context)
+#     }
+#     return render(request, 'index.html', context)
 
 def article(request):
     article = Article.objects.all().order_by('-id')
@@ -86,13 +86,31 @@ def article(request):
     }
     return render (request, 'article.html', context)
 
-# def article_detail(request, slug):
-#     article = get_object_or_404(Article, slug = slug)
 
-#     context = {
-#         'article' : article,
-#     }
-#     return render(request, 'detail_article.html', context)
+
+def popular_article(request):
+    popular_article = Article.objects.all().order_by('-views')
+
+
+    page_num = request.GET.get('page', 1)
+
+    paginator = Paginator(popular_article, 5) # 6 employees per page
+
+    try:
+        page_obj = paginator.page(page_num)
+    except PageNotAnInteger:
+        # if page is not an integer, deliver the first page
+        page_obj = paginator.page(1)
+    except EmptyPage:
+        # if the page is out of range, deliver the last page
+        page_obj = paginator.page(paginator.num_pages)
+
+    context = {
+        'popular_article': page_obj.object_list,
+        'page_obj': page_obj
+    }
+    return render (request, 'popular_article.html', context)
+
 
 def search(request):
     return render(request, 'search.html')

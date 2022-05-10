@@ -21,14 +21,15 @@ from core.views import (
     home,
     news_detail,
     news,
-    searchbar
+    searchbar,
     
 )
 from article.views import (
-    home,
     article,
     article_detail,
     search,
+    popular_article
+
     
 )
 
@@ -38,6 +39,7 @@ urlpatterns = [
     path('news_detail/<slug:slug>/', news_detail, name = 'detail_news'),
     path('news/', news),
     path('article/', article),
+    path('popular_article/', popular_article),
     path('article_detail/<slug:slug>/', article_detail, name = 'article_detail'),
     path('search/', search),
     path('searchbar/', searchbar, name = 'searchbar'),

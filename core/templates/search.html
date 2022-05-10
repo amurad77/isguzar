@@ -63,14 +63,14 @@
       </form>
 
 
-
-<div class="single-latest-post row align-items-center">
+      
+      <div class="single-latest-post row align-items-center">
+    {% if post %}
 {{error}}
 
-        {% if post %}
-    {%  for i in post %}
 
-    <div class="col-lg-5 post-left">
+{%  for i in post %}
+<div class="col-lg-5 post-left" style="margin-bottom: 15px;">
     <div class="feature-img relative">
     <div class="overlay overlay-bg"></div>
     <img class="img-fluid" src=" {{ i.image.url }}   " alt="" data-pagespeed-url-hash="2585403232" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
@@ -96,13 +96,13 @@
     </div>
     {% endfor %}
 
-
-
-    
     {% else %}
-    <h4 style="margin-left: 30px;" >  Təəssüf ki tapılmadı...  </h4>
+
+
     
+    <h4 style="margin-left: 30px;" >  Təəssüf ki tapılmadı...  </h4>
     {% endif %}
+    
     
     
 </div>
