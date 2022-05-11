@@ -1,0 +1,140 @@
+
+
+
+  
+{% extends "base.html" %}
+
+
+{% load static %}
+   
+
+
+
+
+{% block content %}
+
+
+<div class="site-main-container">
+
+    <section class="top-post-area pt-10">
+    <div class="container no-padding">
+    <div class="row">
+    <div class="col-lg-12">
+    <div class="hero-nav-area">
+    <h1 class="text-white">Contact Us</h1>
+    <p class="text-white link-nav"><a href="https://preview.colorlib.com/theme/magazine/index.html">Home </a> <span class="lnr lnr-arrow-right"></span><a href="https://preview.colorlib.com/theme/magazine/contact.html">Contact Us </a></p>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+    
+    
+    <section class="contact-page-area pt-50 pb-120">
+    <div class="container">
+    <div class="row contact-wrap">
+
+    <div class="col-lg-3 d-flex flex-column address-wrap">
+    <div class="single-contact-address d-flex flex-row">
+    <div class="icon">
+    <span class="lnr lnr-home"></span>
+    </div>
+    <div class="contact-details">
+    <h5>Los Angeles, USA</h5>
+    <p>
+    56/8, Rocky beach road
+    </p>
+    </div>
+    </div>
+    <div class="single-contact-address d-flex flex-row">
+    <div class="icon">
+    <span class="lnr lnr-phone-handset"></span>
+    </div>
+    <div class="contact-details">
+    <h5>00 (440) 9865 562</h5>
+    <p>Mon to Fri 9am to 6 pm</p>
+    </div>
+    </div>
+    <div class="single-contact-address d-flex flex-row">
+    <div class="icon">
+    <span class="lnr lnr-envelope"></span>
+    </div>
+    <div class="contact-details">
+    <h5>support@colorlib.com</h5>
+    <p>Send us your query</p>
+    </div>
+    </div>
+    </div>
+
+    {% if submitted %}
+    <p class="success">
+        Gonderdin gaga
+    </p>
+    {% else %}
+    <div class="col-lg-9">
+    <form class="form-area contact-form text-right"  action="" method="POST">
+    <div class="row">
+    <div class="col-lg-6">
+
+        {% csrf_token %}
+
+        
+    {{ form.name }}
+    <!-- <input name="name" placeholder="Enter your name" onfocus="this.placeholder = &#39;&#39;" onblur="this.placeholder = &#39;Enter your name&#39;" class="common-input mb-20 form-control" required="" type="text"> -->
+
+    {{ form.email }}
+    <!-- <input name="email" placeholder="Enter email address" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = &#39;&#39;" onblur="this.placeholder = &#39;Enter email address&#39;" class="common-input mb-20 form-control" required="" type="email"> -->
+
+    {{ form.subject }}
+    <!-- <input name="subject" placeholder="Enter subject" onfocus="this.placeholder = &#39;&#39;" onblur="this.placeholder = &#39;Enter subject&#39;" class="common-input mb-20 form-control" required="" type="text"> -->
+
+    </div>
+
+
+    <div class="col-lg-6">
+        {{ form.messege }}
+    <!-- <textarea class="common-textarea form-control" name="message" placeholder="Enter Messege" onfocus="this.placeholder = &#39;&#39;" onblur="this.placeholder = &#39;Enter Messege&#39;" required=""></textarea> -->
+    </div>
+{% endif %}
+
+{% for message in messages %}
+
+<p class="text-success">{{message}}</p>
+
+{% endfor %}
+    <div class="col-lg-12">
+    <div class="alert-msg" style="text-align: left;"></div>
+    <button type="submit" class="primary-btn text-uppercase"> Göndər </a> </button>
+</div>
+    </div>
+    </form>
+    </div>
+    </div>
+    </div>
+    </section>
+    
+    </div>
+    
+    
+    <script src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
+<script src="{% static 'js/vendor,_bootstrap.min.js+easing.min.js+hoverIntent.js+superfish.min.js+jquery.ajaxchimp.min.js+jquery.magnific-popup.min.js.pagespeed.jc.4hqUlCTjA9.js' %}"></script><script>eval(mod_pagespeed_LjwYg_bxMe);</script>
+<script>eval(mod_pagespeed_toGqkj3qZT);</script>
+<script>eval(mod_pagespeed_g3Fg5HhNBX);</script>
+<script>eval(mod_pagespeed_G2m$0isqjq);</script>
+<script>eval(mod_pagespeed_676Td6U86F);</script>
+<script>eval(mod_pagespeed_IQezO6iasT);</script>
+<script src="{% static 'js/jquery-ui.js' %}"></script>
+<script src="{% static 'js/jquery.nice-select.min.js+owl.carousel.min.js+mail-script.js.pagespeed.jc.P4rtdDYe94.js' %}"></script><script>eval(mod_pagespeed_AZJLz1Fkz7);</script>
+<script>eval(mod_pagespeed_zvKAYx$6uz);</script>
+<script>eval(mod_pagespeed_9CfZm93hpF);</script>
+<script src="{% static 'js/main.js' %}"></script>
+
+<script async="" src="{% static 'js/js.js' %}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+    {% endblock %}

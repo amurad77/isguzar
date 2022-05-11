@@ -5,7 +5,7 @@ from django.utils.text import slugify
 # from isguzar.commons import slugify
 from django.urls import reverse
 from article.models import Article
-from core.models import News
+from news.models import News
 # Create your models here.
 
 

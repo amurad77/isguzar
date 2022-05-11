@@ -1,4 +1,9 @@
-// document.getElementById('value_remove').value='' ; 
+document.getElementById('value_remove').value='' ;
+document.getElementById('value').value='cvcxxcv'; 
+document.getElementById('value1').value='xcv';
+document.getElementById('value2').value='xcv'; 
+document.getElementById('value3').value='cxv';
+
 
 
 

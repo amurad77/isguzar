@@ -1,5 +1,15 @@
 from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, HttpResponseRedirect, redirect
+from news.models import News
+from comments.models import NewsComments
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
+# from article.models import Article
+from django.db.models import Q
+from comments.forms import NewsCommentForm
+from django.contrib.auth.decorators import login_required
+# from core.forms import SubscribeForm
+# Create your views here.
 # Create your views here.
 
 

@@ -17,25 +17,34 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib import admin
 from django.urls import path
+
 from core.views import (
     home,
-    news_detail,
-    news,
+    # news_detail,
+    # news,
     searchbar,
     
+)
+
+from contact.views import (
+    contact,
+)
+
+from news.views import (
+    news,
+    news_detail
 )
 from article.views import (
     article,
     article_detail,
     search,
     popular_article
-
-    
 )
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', home),
+    path('contact/', contact, name = 'contact'),
     path('news_detail/<slug:slug>/', news_detail, name = 'detail_news'),
     path('news/', news),
     path('article/', article),

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ArticleComments, NewsComments, Subscribe
+from .models import ArticleComments, NewsComments
 # Register your models here.
 
 
@@ -25,4 +25,3 @@ class NewsCommentAdmin(admin.ModelAdmin):
 
 admin.site.register (NewsComments, NewsCommentAdmin)
 
-admin.site.register(Subscribe)
