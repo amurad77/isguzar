@@ -54,11 +54,10 @@ class SubscribeForm(forms.ModelForm):
 
         widgets = {
 
-            'email' : forms.EmailInput(attrs = {
-                                'class' : 'form-control',
-                                'id' : 'value_remove',
-                                'placeholder' : 'Enter email address',
+            'email': forms.EmailInput(attrs={
+                                    'class': 'common-input mb-20 form-control',
+                                    'placeholder': 'Enter email address',
+                                    'id': 'value1'
+                                    
                                 })
-                   
         }
-

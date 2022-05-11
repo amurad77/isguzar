@@ -8,18 +8,23 @@ from django.db.models import Q
 from comments.forms import NewsCommentForm
 from contact.forms import SubscribeForm
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+
 # from core.forms import SubscribeForm
 # Create your views here.
 
 def home(request):
     # news11 = get_object_or_404(News, slug = slug)
     form = SubscribeForm()
+    submitted = False
 
     if request.method == 'POST':
         subscribe_data = request.POST
         form = SubscribeForm(data = subscribe_data)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Mesajınız qeydə alındı')
+            return HttpResponseRedirect('/home?submitted=True')
             print('Form save')
         else:
             print('Form is invalid')

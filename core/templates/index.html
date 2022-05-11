@@ -507,6 +507,11 @@ Here, I focus on a range of items
 andfeatures that we use in life without
 giving them a second thought.
 </p>
+{% if submitted %}
+<p class="success">
+    Gonderdin gaga
+</p>
+{% else %}
 <form action="" method="POST">
 {% csrf_token %}
 
@@ -517,14 +522,21 @@ giving them a second thought.
 <!-- <input class="form-control" placeholder="Email Address" onfocus="this.placeholder = &#39;&#39;" onblur="this.placeholder = &#39;Email Address&#39;" type="text"> -->
 </div>
 </div>
+
+{% endif %}
+
+
+
 <button type="submit" class="primary-btn text-uppercase"> Göndər</button>
 
 <!-- <a href="https://preview.colorlib.com/theme/magazine/#" class="bbtns">Subcribe</a> -->
 </div>
 </form>
-<p>
-You can unsubscribe us at any time
-</p>
+{% for message in messages %}
+
+<p class="text-success">{{message}}</p>
+
+{% endfor %}
 </div>
 
 
