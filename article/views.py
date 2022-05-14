@@ -20,12 +20,15 @@ def article_detail(request, slug):
         comment.save()
         return HttpResponseRedirect(article.get_absolute_url())
 
+    article_comments_count_detail = ArticleComments.objects.filter(article=article)
+
 
     views = article.views
     views += 1
     degis = Article.objects.filter(slug = slug).update(views = views)
 
     context = {
+        'article_comments_count_detail' : article_comments_count_detail,
         'article' : article,
         'form' : form,
     }

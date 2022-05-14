@@ -32,6 +32,7 @@ def news_detail(request, slug):
     views += 1
     degis = News.objects.filter(slug = slug).update(views = views)
 
+
     context = {
         'news_comments_count_detail' : news_comments_count_detail,
         'news' : news,
@@ -40,34 +41,6 @@ def news_detail(request, slug):
     # print(news.comment.all())
     return render(request, 'detail_news.html', context)
 
-def add_comment_to_post(request, pk):
-    news = News.get_object_or_404(News, pk = pk)
-
-    if request.POST == 'POST':
-        form = NewsCommentForm(request.POST)
-        if form.is_valid():
-            comment = form.save(commit = False)
-            comment.news = news
-            comment.save()
-            return redirect('detail_news', pk = news.pk)
-    else:
-        form = NewsCommentForm()
-    return render(request, 'forms.html', {'form' : form})
-
-
-
-@login_required
-def comment_is_published(request, pk):
-    comment = get_object_or_404(Comments, pk = pk)
-    comment.is_published()
-    return redirect('detail_news', pk = comment.news.pk)
-
-
-@login_required
-def comment_remove(request, pk):
-    comment = get_object_or_404(Comment, pk = pk)
-    comment.delete()
-    return redirect('detail_news', pk = comment.news.pk)
 
 
 def news(request):
@@ -91,3 +64,32 @@ def news(request):
         'page_obj': page_obj
     }
     return render (request, 'news.html', context)
+
+
+def add_comment_to_post(request, pk):
+    news = News.get_object_or_404(News, pk = pk)
+
+    if request.POST == 'POST':
+        form = NewsCommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit = False)
+            comment.news = news
+            comment.save()
+            return redirect('detail_news', pk = news.pk)
+    else:
+        form = NewsCommentForm()
+    return render(request, 'forms.html', {'form' : form})
+
+
+@login_required
+def comment_is_published(request, pk):
+    comment = get_object_or_404(Comments, pk = pk)
+    comment.is_published()
+    return redirect('detail_news', pk = comment.news.pk)
+
+
+@login_required
+def comment_remove(request, pk):
+    comment = get_object_or_404(Comment, pk = pk)
+    comment.delete()
+    return redirect('detail_news', pk = comment.news.pk)

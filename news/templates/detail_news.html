@@ -22,8 +22,8 @@
     <div class="row">
     <div class="col-lg-12">
     <div class="hero-nav-area">
-    <h1 class="text-white">Image Post</h1>
-    <p class="text-white link-nav"><a href="https://preview.colorlib.com/theme/magazine/index.html">Home </a> <span class="lnr lnr-arrow-right"></span><a href="https://preview.colorlib.com/theme/magazine/image-post.html#">Post Types </a><span class="lnr lnr-arrow-right"></span><a href="https://preview.colorlib.com/theme/magazine/image-post.html">Image Post </a></p>
+    <h1 class="text-white">Xəbər Ətrafı</h1>
+    <p class="text-white link-nav"><a href="https://preview.colorlib.com/theme/magazine/index.html">Ana səhifə </a> <span class="lnr lnr-arrow-right"></span><a href="#">Xəbərlər </a><span class="lnr lnr-arrow-right"></span><a href="#">Xəbər ətraflı </a></p>
     </div>
     </div>
     <div class="col-lg-12">
@@ -65,7 +65,6 @@
     <p>
         {{ news.descrtiption }}
     </p>
-    <blockquote>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</blockquote>
     <div class="navigation-wrap justify-content-between d-flex">
     <a class="prev" href="https://preview.colorlib.com/theme/magazine/image-post.html#"><span class="lnr lnr-arrow-left"></span>Prev Post</a>
     <a class="next" href="https://preview.colorlib.com/theme/magazine/image-post.html#">Next Post<span class="lnr lnr-arrow-right"></span></a>
@@ -73,7 +72,7 @@
     <div class="comment-sec-area">
     <div class="container">
     <div class="row flex-column">
-    <h6> {{news_comments_count.count}} Comments</h6>
+    <h6> {{news_comments_count_detail.count}} Comments</h6>
 
 
         {% for comment in news.comment.all %}
