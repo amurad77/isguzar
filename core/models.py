@@ -7,7 +7,7 @@ class CareerCenter(models.Model):
     # information
     logo = models.ImageField('Logo', upload_to = 'media/creer_center', null = True, blank = True)
     title = models.CharField('Basliq', max_length = 50)
-    company = models.CharField('Basliq', max_length = 50)
+    company = models.CharField('Şirkət', max_length = 50)
     mail = models.CharField('Mail', max_length = 50)
     adress = models.CharField('Ünvan', max_length = 200)
 

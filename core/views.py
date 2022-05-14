@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, HttpResponseRedirect, re
 from news.models import News
 from comments.models import NewsComments
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
+from .models import CareerCenter
 from article.models import Article
 from django.db.models import Q
 from comments.forms import NewsCommentForm
@@ -14,7 +14,6 @@ from django.contrib import messages
 # Create your views here.
 
 def home(request):
-    # news11 = get_object_or_404(News, slug = slug)
     form = SubscribeForm()
     submitted = False
 
@@ -28,6 +27,16 @@ def home(request):
             print('Form save')
         else:
             print('Form is invalid')
+
+
+
+
+
+    career_center = CareerCenter.objects.all().order_by('-id')[:9]
+    
+
+
+
 
 
     query = request.GET.get('q')
@@ -54,6 +63,7 @@ def home(request):
         'popular_list3' : popular_list3,
         'form' : form,
         'news_comments_count' : news_comments_count,
+        'career_center' : career_center,
 
 
     }
