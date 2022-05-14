@@ -1,20 +1,44 @@
 from django.db import models
 from datetime import datetime
 from django.urls import reverse
+from django.utils.text import slugify
+
 
 
 class CareerCenter(models.Model):
     # information
     logo = models.ImageField('Logo', upload_to = 'media/creer_center', null = True, blank = True)
     title = models.CharField('Basliq', max_length = 50)
+    slug = models.SlugField('Slug', max_length = 110, unique = True, editable = False)
     company = models.CharField('Şirkət', max_length = 50)
     mail = models.CharField('Mail', max_length = 50)
     adress = models.CharField('Ünvan', max_length = 200)
+    views = models.PositiveIntegerField(default = 0)
+
 
     # moderations
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse('career_center_detail', kwargs = {'slug': self.slug})
+
+    def get_uniqe_slug(self):
+        slug = slugify(self.title.replace('ə', 'e'))
+        unique_slug = slug
+        counter = 1
+        while CareerCenter.objects.filter(slug = unique_slug).exists():
+            unique_slug = '{}-{}'.format(slug, counter)
+            counter += 1
+        return unique_slug
+
+    def save(self, *args, **kwargs):
+        self.slug = self.get_uniqe_slug()
+        return super(CareerCenter, self).save(*args, **kwargs)
 
 class DesiredFeautures(models.Model):
     #relation's

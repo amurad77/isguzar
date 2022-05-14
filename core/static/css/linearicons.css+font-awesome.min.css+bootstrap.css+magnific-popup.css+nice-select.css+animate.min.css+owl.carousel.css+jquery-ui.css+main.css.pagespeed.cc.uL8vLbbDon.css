@@ -11,6 +11,11 @@
 }
 
 
+ul.a {
+  list-style-type: circle !important;
+}
+
+
 .lnr {
 	font-family: 'Linearicons-Free';
 	speak: none;
@@ -4778,9 +4783,9 @@ body {
   margin-top: 20px;
 }
 
-.single-post-wrap .meta {
+/* .single-post-wrap .meta {
   margin: 10px 0px;
-}
+} */
 
 .single-post-wrap .meta li {
   display: inline-block;

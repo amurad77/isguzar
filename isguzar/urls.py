@@ -20,8 +20,8 @@ from django.urls import path
 
 from core.views import (
     home,
-    # news_detail,
-    # news,
+    career_center,
+    career_center_detail,
     searchbar,
     
 )
@@ -45,11 +45,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', home),
     path('contact/', contact, name = 'contact'),
+    path('career_center/', career_center, name = 'career_center'),
     path('news_detail/<slug:slug>/', news_detail, name = 'detail_news'),
     path('news/', news),
     path('article/', article),
     path('popular_article/', popular_article),
     path('article_detail/<slug:slug>/', article_detail, name = 'article_detail'),
+    path('career_center_detail/<slug:slug>/', career_center_detail, name = 'career_center_detail'),
     path('search/', search),
     path('searchbar/', searchbar, name = 'searchbar'),
 
