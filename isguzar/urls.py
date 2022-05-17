@@ -43,7 +43,7 @@ from article.views import (
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', home),
+    path('/', home),
     path('contact/', contact, name = 'contact'),
     path('career_center/', career_center, name = 'career_center'),
     path('news_detail/<slug:slug>/', news_detail, name = 'detail_news'),
