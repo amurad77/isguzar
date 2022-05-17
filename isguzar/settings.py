@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/2.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
-
+from pathlib import Path
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -25,8 +25,7 @@ SECRET_KEY = 'c5p2m*vvschjr9z^$&xut&6mwzwwz_&q8%zk0+m@o%!#!b7!dv'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -85,17 +84,22 @@ WSGI_APPLICATION = 'isguzar.wsgi.application'
 #     }
 # }
 
+import time
+time.sleep(2)
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'db_name',
-        'USER': 'db_user',
-        'PASSWORD': '12345',
-        'HOST': 'localhost',
-        'PORT': 5432
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.getenv('POSTGRES_DB', 'isguzar'),
+            'USER': os.getenv('POSTGRES_USER', 'isguzar'),
+            'PORT': os.getenv('POSTGRES_PORT', 5432),
+            'PASSWORD': os.getenv('POSTGRES_PASSWORD', '12345'),
+            'HOST': os.getenv('POSTGRES_HOST', '127.0.0.1'),
+        }
+    #     'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
     }
-}
-
 
 
 # Password validation

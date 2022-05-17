@@ -1,8 +1,10 @@
 from django.shortcuts import render, get_object_or_404, HttpResponseRedirect, redirect
 from comments.models import ArticleComments
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
+from contact.forms import SubscribeForm
 from article.models import Article
+from django.contrib import messages
+
 from comments.forms import ArticleCommentForm
 from django.contrib.auth.decorators import login_required
 # Create your views here.
@@ -11,6 +13,23 @@ from django.contrib.auth.decorators import login_required
 
 
 def article_detail(request, slug):
+
+
+    formSubscribe = SubscribeForm()
+    submitted = False
+
+    if request.method == 'POST':
+        subscribe_data = request.POST
+        formSubscribe = SubscribeForm(data = subscribe_data)
+        if formSubscribe.is_valid():
+            formSubscribe.save()
+            messages.success(request, 'Mesajınız qeydə alındı')
+            return HttpResponseRedirect('/article_detail?submitted=True')
+            print('Form save')
+        else:
+            print('Form is invalid')
+
+
     article = get_object_or_404(Article, slug = slug)
     form = ArticleCommentForm(request.POST or None)
 
@@ -28,6 +47,7 @@ def article_detail(request, slug):
     degis = Article.objects.filter(slug = slug).update(views = views)
 
     context = {
+        'formSubscribe': formSubscribe,
         'article_comments_count_detail' : article_comments_count_detail,
         'article' : article,
         'form' : form,
@@ -68,6 +88,24 @@ def add_comment_to_post(request, pk):
 #     return render(request, 'index.html', context)
 
 def article(request):
+
+    form = SubscribeForm()
+    submitted = False
+
+    if request.method == 'POST':
+        subscribe_data = request.POST
+        form = SubscribeForm(data = subscribe_data)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Mesajınız qeydə alındı')
+            return HttpResponseRedirect('/article?submitted=True')
+            print('Form save')
+        else:
+            print('Form is invalid')
+
+
+
+
     article = Article.objects.all().order_by('-id')
 
     page_num = request.GET.get('page', 1)
@@ -84,6 +122,7 @@ def article(request):
         page_obj = paginator.page(paginator.num_pages)
 
     context = {
+        'form': form,
         'article': page_obj.object_list,
         'page_obj': page_obj
     }
@@ -92,6 +131,24 @@ def article(request):
 
 
 def popular_article(request):
+
+    form = SubscribeForm()
+    submitted = False
+
+    if request.method == 'POST':
+        subscribe_data = request.POST
+        form = SubscribeForm(data = subscribe_data)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Mesajınız qeydə alındı')
+            return HttpResponseRedirect('/popular_article?submitted=True')
+            print('Form save')
+        else:
+            print('Form is invalid')
+
+
+
+
     popular_article = Article.objects.all().order_by('-views')
 
 
@@ -109,6 +166,7 @@ def popular_article(request):
         page_obj = paginator.page(paginator.num_pages)
 
     context = {
+        'form': form,
         'popular_article': page_obj.object_list,
         'page_obj': page_obj
     }
@@ -116,4 +174,23 @@ def popular_article(request):
 
 
 def search(request):
-    return render(request, 'search.html')
+    form = SubscribeForm()
+    submitted = False
+
+
+    if request.method == 'POST':
+        subscribe_data = request.POST
+        form = SubscribeForm(data = subscribe_data)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Mesajınız qeydə alındı')
+            return HttpResponseRedirect('/search?submitted=True')
+            print('Form save')
+        else:
+            print('Form is invalid')
+
+
+    context = {
+        'form': form
+        }
+    return render(request, 'search.html', context)
