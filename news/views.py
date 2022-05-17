@@ -18,19 +18,7 @@ from django.contrib.auth.decorators import login_required
 
 def news_detail(request, slug):
 
-    formSubscribe = SubscribeForm()
-    submitted = False
 
-    if request.method == 'POST':
-        subscribe_data = request.POST
-        formSubscribe = SubscribeForm(data = subscribe_data)
-        if formSubscribe.is_valid():
-            formSubscribe.save()
-            messages.success(request, 'Mesajınız qeydə alındı')
-            return HttpResponseRedirect('/home?submitted=True')
-            print('Form save')
-        else:
-            print('Form is invalid')
 
     news = get_object_or_404(News, slug = slug)
     # article = get_object_or_404(Article, slug = slug)
@@ -51,7 +39,6 @@ def news_detail(request, slug):
 
 
     context = {
-        'formSubscribe': formSubscribe,
         'news_comments_count_detail' : news_comments_count_detail,
         'news' : news,
         'form' : form,
@@ -62,19 +49,6 @@ def news_detail(request, slug):
 
 
 def news(request):
-    form = SubscribeForm()
-    submitted = False
-
-    if request.method == 'POST':
-        subscribe_data = request.POST
-        form = SubscribeForm(data = subscribe_data)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Mesajınız qeydə alındı')
-            return HttpResponseRedirect('/home?submitted=True')
-            print('Form save')
-        else:
-            print('Form is invalid')
 
 
 
@@ -96,7 +70,6 @@ def news(request):
         page_obj = paginator.page(paginator.num_pages)
 
     context = {
-        'form': form,
         'news': page_obj.object_list,
         'page_obj': page_obj
     }

@@ -15,19 +15,6 @@ from django.contrib.auth.decorators import login_required
 def article_detail(request, slug):
 
 
-    formSubscribe = SubscribeForm()
-    submitted = False
-
-    if request.method == 'POST':
-        subscribe_data = request.POST
-        formSubscribe = SubscribeForm(data = subscribe_data)
-        if formSubscribe.is_valid():
-            formSubscribe.save()
-            messages.success(request, 'Mesajınız qeydə alındı')
-            return HttpResponseRedirect('/article_detail?submitted=True')
-            print('Form save')
-        else:
-            print('Form is invalid')
 
 
     article = get_object_or_404(Article, slug = slug)
@@ -47,7 +34,6 @@ def article_detail(request, slug):
     degis = Article.objects.filter(slug = slug).update(views = views)
 
     context = {
-        'formSubscribe': formSubscribe,
         'article_comments_count_detail' : article_comments_count_detail,
         'article' : article,
         'form' : form,
@@ -89,20 +75,6 @@ def add_comment_to_post(request, pk):
 
 def article(request):
 
-    form = SubscribeForm()
-    submitted = False
-
-    if request.method == 'POST':
-        subscribe_data = request.POST
-        form = SubscribeForm(data = subscribe_data)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Mesajınız qeydə alındı')
-            return HttpResponseRedirect('/article?submitted=True')
-            print('Form save')
-        else:
-            print('Form is invalid')
-
 
 
 
@@ -122,7 +94,6 @@ def article(request):
         page_obj = paginator.page(paginator.num_pages)
 
     context = {
-        'form': form,
         'article': page_obj.object_list,
         'page_obj': page_obj
     }
@@ -132,19 +103,6 @@ def article(request):
 
 def popular_article(request):
 
-    form = SubscribeForm()
-    submitted = False
-
-    if request.method == 'POST':
-        subscribe_data = request.POST
-        form = SubscribeForm(data = subscribe_data)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Mesajınız qeydə alındı')
-            return HttpResponseRedirect('/popular_article?submitted=True')
-            print('Form save')
-        else:
-            print('Form is invalid')
 
 
 
@@ -166,7 +124,6 @@ def popular_article(request):
         page_obj = paginator.page(paginator.num_pages)
 
     context = {
-        'form': form,
         'popular_article': page_obj.object_list,
         'page_obj': page_obj
     }
@@ -174,23 +131,5 @@ def popular_article(request):
 
 
 def search(request):
-    form = SubscribeForm()
-    submitted = False
 
-
-    if request.method == 'POST':
-        subscribe_data = request.POST
-        form = SubscribeForm(data = subscribe_data)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Mesajınız qeydə alındı')
-            return HttpResponseRedirect('/?submitted=True')
-            print('Form save')
-        else:
-            print('Form is invalid')
-
-
-    context = {
-        'form': form
-        }
-    return render(request, 'search.html', context)
+    return render(request, 'search.html')

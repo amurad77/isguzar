@@ -116,25 +116,13 @@ def career_center_detail(request, slug):
 
 def searchbar(request):
 
-    form = SubscribeForm()
-    submitted = False
 
 
     if request.method == 'GET':
         search = request.GET.get('search')
         post = News.objects.all().filter(title__icontains=search)
 
-
-        subscribe_data = request.POST
-        form = SubscribeForm(data = subscribe_data)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Mesajınız qeydə alındı')
-            return HttpResponseRedirect('')
-            print('Form save')
-        else:
-            print('Form is invalid')
-        return render(request, 'search.html', {'post' : post, 'form': form})
+        return render(request, 'search.html', {'post' : post})
 
     
 
