@@ -130,7 +130,7 @@ def searchbar(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Mesajınız qeydə alındı')
-            return HttpResponseRedirect('/search?submitted=True')
+            return HttpResponseRedirect('/home?submitted=True')
             print('Form save')
         else:
             print('Form is invalid')
