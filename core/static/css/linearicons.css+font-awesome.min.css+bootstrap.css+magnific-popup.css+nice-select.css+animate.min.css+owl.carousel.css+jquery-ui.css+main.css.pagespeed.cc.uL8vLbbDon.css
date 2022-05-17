@@ -3323,9 +3323,21 @@ body.mobile-nav-active #mobile-nav-toggle {
   opacity: 1;
 }
 
-.Search-box:focus + .Search-box-label {
+.Search-box:focus {
   z-index: -1;
   opacity: 0;
+}
+
+.searchicon{
+  z-index: -1;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  z-index: 2;
+  cursor: pointer;
+  height: 100%;
+  width: 3rem;
+  transition: opacity ease 250ms 250ms;
 }
 
 .Search-box:focus ~ .Search-close {
@@ -3333,7 +3345,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   opacity: 1;
 }
 
-.Search-box-label,
+
 .Search-close {
   position: absolute;
   right: 0;
