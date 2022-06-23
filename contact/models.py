@@ -34,3 +34,13 @@ class Subscribe(models.Model):
 
     def __str__(self):
         return self.email
+
+
+class Author(models.Model):
+    name_surname = models.CharField('Ad və Soyad',  max_length = 150)
+    mail = models.CharField('E-mail',  max_length = 150)
+    phono = models.CharField('Telefon',  max_length = 150)
+    working_status = models.CharField('Iş vəiyyətiniz',  max_length = 150)
+    education_industry_experience = models.CharField('Təhsil və sənayə təcrübəniz',  max_length = 150)
+    subjects = models.CharField('Hansı mövzuda yaza bilərsiniz?',  max_length = 150)
+    time = models.CharField('Nə qədər vaxtdan bir məzmun təqdim edə bilərsiniz?',  max_length = 150)
