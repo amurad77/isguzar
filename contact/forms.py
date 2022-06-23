@@ -28,7 +28,7 @@ class AuthorForm(forms.ModelForm):
                                     'class': 'common-input mb-20 form-control',
                                     'placeholder': 'Telefon',
                                     }),
-            'education_industry_experience': forms.TextInput(attrs={
+            'education_industry': forms.TextInput(attrs={
                                     'class': 'common-input mb-20 form-control',
                                     'placeholder': 'Təhsil və sənayə təcrübəniz',
                                     }),
