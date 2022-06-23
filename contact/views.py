@@ -41,7 +41,7 @@ def author(request):
             print('Form save')
         else:
             print('Form is invalid')
-    ontext = { 
+    context = { 
         'form':form
     }
 
