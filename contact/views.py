@@ -41,5 +41,8 @@ def author(request):
             print('Form save')
         else:
             print('Form is invalid')
+    ontext = { 
+        'form':form
+    }
 
-    return render(request, 'author.html')
+    return render(request, 'author.html', context)
