@@ -28,3 +28,6 @@ def contact(request):
     # print(form)
     return render(request, 'contact.html', context)
 
+
+def author(request):
+    return render(request, 'author.html')

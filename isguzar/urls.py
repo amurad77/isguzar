@@ -28,6 +28,7 @@ from core.views import (
 
 from contact.views import (
     contact,
+    author
 )
 
 from news.views import (
@@ -48,6 +49,7 @@ urlpatterns = [
     path('career_center/', career_center, name = 'career_center'),
     path('news_detail/<slug:slug>/', news_detail, name = 'detail_news'),
     path('news/', news),
+    path('author/', author)
     path('article/', article),
     path('popular_article/', popular_article),
     path('article_detail/<slug:slug>/', article_detail, name = 'article_detail'),
