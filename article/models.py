@@ -6,6 +6,7 @@ from django.utils.text import slugify
 # from isguzar.commons import slugify
 from django.urls import reverse
 # from core.models import *
+from core.models import Tags
 
 
 User = get_user_model()
@@ -15,6 +16,7 @@ User = get_user_model()
 class Article(models.Model):
     # relation
     owner =  models.ForeignKey(User, on_delete=models.CASCADE, related_name='article')
+    tags = models.ForeignKey(Tags, on_delete = models.CASCADE)
 
     # information
     title = models.CharField('Basliq', max_length = 50)
@@ -22,6 +24,7 @@ class Article(models.Model):
     slug = models.SlugField('Slug', max_length = 110, unique = True, editable = False)
     views = models.PositiveIntegerField(default = 0)
     image = models.ImageField("Şekil", upload_to = 'media/article_images', null=True, blank=True)
+    time = models.PositiveIntegerField('Neçə dəqiqəlik məqalə', default = 0)
 
     # moderations
     is_published = models.BooleanField('is published', default=True)

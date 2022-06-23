@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import CareerCenter, DesiredFeautures
+from .models import CareerCenter, DesiredFeautures, Tags
 # Register your models here.
 
 
@@ -14,3 +14,6 @@ class CareerCenterAdmin(admin.ModelAdmin):
     search_fields = ('mail', 'created_at', 'updated_at')
 
 admin.site.register(CareerCenter, CareerCenterAdmin)
+
+
+admin.site.register(Tags)

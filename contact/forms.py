@@ -1,8 +1,22 @@
 from django import forms
 from .models import Subscribe, Contact, Author
 
+WORKING_CHOICES =(
+    ("1", "Sektordayam"),
+    ("2", "Tələbəyəm"),
+    ("3", "İşləmirəm")
+)
+
+TIME = (
+    ("1", "Həftədə 1-2 məqalə"),
+    ("2", "Həftədə 3-4 məqalə"),
+    ("3", "Ayda 1-2 məqalə")
+)
+
+
 
 class AuthorForm(forms.ModelForm):
+
 
     class Meta:
         model = Author
@@ -10,8 +24,10 @@ class AuthorForm(forms.ModelForm):
             'name_surname',
             'mail',
             'phono',
+            'working_status',
             'education_industry',
             'subjects',
+            'time'
         )
 
         widgets = {
@@ -28,6 +44,7 @@ class AuthorForm(forms.ModelForm):
                                     'class': 'common-input mb-20 form-control',
                                     'placeholder': 'Telefon',
                                     }),
+            'working_status': forms.ChoiceField(choices = WORKING_CHOICES),
             'education_industry': forms.TextInput(attrs={
                                     'class': 'common-input mb-20 form-control',
                                     'placeholder': 'Təhsil və sənayə təcrübəniz',
@@ -36,6 +53,7 @@ class AuthorForm(forms.ModelForm):
                                     'class': 'common-input mb-20 form-control',
                                     'placeholder': 'Hansı mövzuda yaza bilərsiniz?',
                                     }),
+            'time': forms.ChoiceField(choices = TIME),
         }
 
 class ContactForm(forms.ModelForm):

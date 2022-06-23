@@ -3,7 +3,11 @@ from datetime import datetime
 from django.urls import reverse
 from django.utils.text import slugify
 
+class Tags(models.Model):
+    tags = models.CharField('Tag', max_length = 50)
 
+    def __str__(self):
+        return self.tags
 
 class CareerCenter(models.Model):
     # information

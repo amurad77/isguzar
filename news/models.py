@@ -6,6 +6,7 @@ from django.utils.text import slugify
 # from isguzar.commons import slugify
 from django.urls import reverse
 from article.models import *
+from core.models import Tags
 
 # Create your models here.
 
@@ -16,7 +17,8 @@ User = get_user_model()
 
 class News(models.Model):
     # relation
-    owner =  models.ForeignKey(User, on_delete=models.CASCADE, related_name='news')
+    owner =  models.ForeignKey(User, on_delete = models.CASCADE, related_name='news')
+    tags = models.ForeignKey(Tags, on_delete = models.CASCADE)
 
     # information
     title = models.CharField('Basliq', max_length = 50)
@@ -24,6 +26,7 @@ class News(models.Model):
     slug = models.SlugField('Slug', max_length = 110, unique = True, editable = False)
     views = models.PositiveIntegerField(default = 0)
     image = models.ImageField("Şekil", upload_to = 'media/news_images', null=True, blank=True)
+    time = models.PositiveIntegerField('Neçə dəqiqəlik xəbər', default = 0)
 
     # moderations
     is_published = models.BooleanField('is published', default=True)
