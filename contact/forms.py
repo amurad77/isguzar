@@ -10,7 +10,7 @@ class AuthorForm(forms.ModelForm):
             'name_surname',
             'mail',
             'phono',
-            'education_industry_experience',
+            'education_industry',
             'subjects',
         )
 

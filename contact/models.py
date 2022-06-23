@@ -41,6 +41,6 @@ class Author(models.Model):
     mail = models.CharField('E-mail',  max_length = 150)
     phono = models.CharField('Telefon',  max_length = 150)
     working_status = models.CharField('Iş vəiyyətiniz',  max_length = 150)
-    education_industry_experience = models.CharField('Təhsil və sənayə təcrübəniz',  max_length = 150)
+    education_industry = models.CharField('Təhsil və sənayə təcrübəniz',  max_length = 150)
     subjects = models.CharField('Hansı mövzuda yaza bilərsiniz?',  max_length = 150)
     time = models.CharField('Nə qədər vaxtdan bir məzmun təqdim edə bilərsiniz?',  max_length = 150)
