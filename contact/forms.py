@@ -1,6 +1,41 @@
 from django import forms
-from .models import Subscribe, Contact
+from .models import Subscribe, Contact, Author
 
+
+class AuthorForm(forms.ModelForm)
+
+    class Meta:
+        model = Author
+        fields = (
+            'name_surname',
+            'mail',
+            'phono',
+            'education_industry_experience',
+            'subjects',
+        )
+
+        widgets = {
+            'name_surname': forms.TextInput(attrs={
+                                            'class': 'common-input mb-20 form-control',
+                                            'placeholder': 'Ad ve Soyad',
+                                            }),
+            'mail': forms.TextInput(attrs={
+                                    'class': 'common-input mb-20 form-control',
+                                    'placeholder': 'E-Mail adres',
+            
+                                    }),
+            'phono': forms.TextInput(attrs={
+                                    'class': 'common-input mb-20 form-control',
+                                    'placeholder': 'Telefon',
+                                    }),
+            'education_industry_experience': forms.TextInput(attrs={
+                                    'class': 'common-input mb-20 form-control',
+                                    'placeholder': 'Təhsil və sənayə təcrübəniz',
+                                    }),
+            'subjects': forms.TextInput(attrs={
+                                    'class': 'common-input mb-20 form-control',
+                                    'placeholder': 'Hansı mövzuda yaza bilərsiniz?',
+        }
 
 class ContactForm(forms.ModelForm):
 
@@ -36,8 +71,6 @@ class ContactForm(forms.ModelForm):
                                     'id': 'value3'
                                 })
         }
-
-
 
 
 
