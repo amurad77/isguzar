@@ -35,6 +35,7 @@ class AuthorForm(forms.ModelForm):
             'subjects': forms.TextInput(attrs={
                                     'class': 'common-input mb-20 form-control',
                                     'placeholder': 'Hansı mövzuda yaza bilərsiniz?',
+                                    }),
         }
 
 class ContactForm(forms.ModelForm):
