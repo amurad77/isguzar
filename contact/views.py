@@ -30,7 +30,7 @@ def contact(request):
 
 
 def author(request):
-    form = AuthorForm
+    form = AuthorForm()
     if request.method == 'POST':
         author_data = request.POST
         form = AuthorForm(data=author_data)
