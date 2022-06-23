@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponseRedirect
-from .forms import ContactForm
+from .forms import ContactForm, AuthorForm
 from django.contrib import messages
 
 # Create your views here.
@@ -30,4 +30,16 @@ def contact(request):
 
 
 def author(request):
+    form = AuthorForm
+    if request.method == 'POST':
+        author_data = request.POST
+        form = AuthorForm(data=author_data)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Mesajınız qeydə alındı')
+            print('Form save')
+        else:
+            print('Form is invalid')
+
     return render(request, 'author.html')
