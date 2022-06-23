@@ -2,7 +2,7 @@ from django import forms
 from .models import Subscribe, Contact, Author
 
 
-class AuthorForm(forms.ModelForm)
+class AuthorForm(forms.ModelForm):
 
     class Meta:
         model = Author
