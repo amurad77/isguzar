@@ -32,6 +32,7 @@ def home(request):
 
 
 
+
     career_center_home = CareerCenter.objects.all().order_by('-id')[:9]
     
 
