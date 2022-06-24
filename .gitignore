@@ -6,5 +6,6 @@ venv
 ./env
 /env
 
+pgdb
 *.pyc
 */__pycache__/
