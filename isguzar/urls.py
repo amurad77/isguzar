@@ -33,7 +33,11 @@ from contact.views import (
 
 from news.views import (
     news,
-    news_detail
+    news_detail,
+    business,
+    sciene_and_technology,
+    design_and_innovation,
+    art_and_culture
 )
 from article.views import (
     article,
@@ -56,6 +60,11 @@ urlpatterns = [
     path('career_center_detail/<slug:slug>/', career_center_detail, name = 'career_center_detail'),
     path('search/', search),
     path('searchbar/', searchbar, name = 'searchbar'),
+    path('category/business_news/', business),
+    path('category/sciene_and_technology_news', sciene_and_technology),
+    path('category/design_and_innovation_news', design_and_innovation),
+    path('category/art_and_culture_news', art_and_culture)
+    
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

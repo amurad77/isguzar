@@ -29,17 +29,8 @@ def home(request):
             print('Form is invalid')
 
 
-
-
-
-
     career_center_home = CareerCenter.objects.all().order_by('-id')[:9]
     
-
-
-
-
-
     query = request.GET.get('q')
     querylist = News.objects.all()
     # news = News.objects.all()

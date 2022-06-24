@@ -15,6 +15,120 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
+def business(request):
+    business_news = News.objects.filter(tags='2')
+    print('----------------------------------------------------------------------------------')
+    print(business_news)
+    print('----------------------------------------------------------------------------------')
+
+
+
+    page_num = request.GET.get('page', 1)
+
+    paginator = Paginator(business_news, 5) # 6 employees per page
+
+    try:
+        page_obj = paginator.page(page_num)
+    except PageNotAnInteger:
+        # if page is not an integer, deliver the first page
+        page_obj = paginator.page(1)
+    except EmptyPage:
+        # if the page is out of range, deliver the last page
+        page_obj = paginator.page(paginator.num_pages)
+
+    context = {
+        'business_news' : business_news,
+        'page_obj': page_obj
+    }
+
+    return render(request, 'businnes.html', context)
+
+def sciene_and_technology(request):
+    sciene_and_technology_news = News.objects.filter(tags='1')
+    print('----------------------------------------------------------------------------------')
+    print(sciene_and_technology_news)
+    print('----------------------------------------------------------------------------------')
+
+
+
+    page_num = request.GET.get('page', 1)
+
+    paginator = Paginator(sciene_and_technology_news, 5) # 6 employees per page
+
+    try:
+        page_obj = paginator.page(page_num)
+    except PageNotAnInteger:
+        # if page is not an integer, deliver the first page
+        page_obj = paginator.page(1)
+    except EmptyPage:
+        # if the page is out of range, deliver the last page
+        page_obj = paginator.page(paginator.num_pages)
+
+    context = {
+        'sciene_and_technology' : sciene_and_technology_news,
+        'page_obj': page_obj
+    }
+
+    return render(request, 'sciene_and_technology.html', context)
+
+
+def design_and_innovation(request):
+    design_and_innovation_news = News.objects.filter(tags='3')
+    print('----------------------------------------------------------------------------------')
+    print(design_and_innovation_news)
+    print('----------------------------------------------------------------------------------')
+
+
+
+    page_num = request.GET.get('page', 1)
+
+    paginator = Paginator(design_and_innovation_news, 5) # 6 employees per page
+
+    try:
+        page_obj = paginator.page(page_num)
+    except PageNotAnInteger:
+        # if page is not an integer, deliver the first page
+        page_obj = paginator.page(1)
+    except EmptyPage:
+        # if the page is out of range, deliver the last page
+        page_obj = paginator.page(paginator.num_pages)
+
+    context = {
+        'design_and_innovation' : design_and_innovation_news,
+        'page_obj': page_obj
+    }
+
+    return render(request, 'design_and_innovation.html', context)
+
+
+def art_and_culture(request):
+    art_and_culture_news = News.objects.filter(tags='4')
+    print('----------------------------------------------------------------------------------')
+    print(art_and_culture_news)
+    print('----------------------------------------------------------------------------------')
+
+
+
+    page_num = request.GET.get('page', 1)
+
+    paginator = Paginator(art_and_culture_news, 5) # 6 employees per page
+
+    try:
+        page_obj = paginator.page(page_num)
+    except PageNotAnInteger:
+        # if page is not an integer, deliver the first page
+        page_obj = paginator.page(1)
+    except EmptyPage:
+        # if the page is out of range, deliver the last page
+        page_obj = paginator.page(paginator.num_pages)
+
+    context = {
+        'art_and_culture' : art_and_culture_news,
+        'page_obj': page_obj
+    }
+
+    return render(request, 'art_and_culture.html', context)
+
 
 def news_detail(request, slug):
 
@@ -103,3 +217,6 @@ def comment_remove(request, pk):
     comment = get_object_or_404(Comment, pk = pk)
     comment.delete()
     return redirect('detail_news', pk = comment.news.pk)
+
+
+
