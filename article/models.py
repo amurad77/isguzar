@@ -6,7 +6,7 @@ from django.utils.text import slugify
 # from isguzar.commons import slugify
 from django.urls import reverse
 # from core.models import *
-from core.models import Tags
+from core.models import ArticleTags
 
 
 User = get_user_model()
@@ -14,9 +14,9 @@ User = get_user_model()
 
 
 class Article(models.Model):
-    # relation
+    # relation's
     owner =  models.ForeignKey(User, on_delete=models.CASCADE, related_name='article')
-    tags = models.ForeignKey(Tags, on_delete = models.CASCADE)
+    tags = models.ForeignKey(ArticleTags, on_delete = models.CASCADE)
 
     # information
     title = models.CharField('Basliq', max_length = 50)

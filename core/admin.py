@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import CareerCenter, DesiredFeautures, Tags
+from .models import CareerCenter, DesiredFeautures, NewsTags, ArticleTags, CareerCenterCategory
 # Register your models here.
 
 
@@ -16,4 +16,8 @@ class CareerCenterAdmin(admin.ModelAdmin):
 admin.site.register(CareerCenter, CareerCenterAdmin)
 
 
-admin.site.register(Tags)
+admin.site.register(NewsTags)
+
+admin.site.register(ArticleTags)
+
+admin.site.register(CareerCenterCategory)

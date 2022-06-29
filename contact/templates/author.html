@@ -11,7 +11,7 @@
 
 
 <div class="container">
-    <form class="form-area contact-form text-right"  action="" method="POST">
+    <form method="POST">
 
         {% csrf_token %}
 
@@ -28,7 +28,7 @@
     <!-- <input name="name" placeholder="Telefon" onfocus="this.placeholder = &#39;&#39;" onblur="this.placeholder = &#39;Telefon&#39;" class="common-input mb-20 form-control" required="" type="text"> -->
 
 
-    {{ form.working_status }}
+        {{form.working_status}}
     <!-- <select style="margin-bottom: 15px;" class="custom-select" id="inputGroupSelect01">
         <option selected>Iş vəiyyətiniz</option>
         <option value="1">Sektordayam</option>
@@ -46,7 +46,7 @@
 
 
 
-    {{ form.time }}
+    
     <!-- <select style="margin-bottom: 15px;" class="custom-select" id="inputGroupSelect01">
         <option selected>Nə qədər vaxtdan bir məzmun təqdim edə bilərsiniz?</option>
         <option value="1">Həftədə 1-2 məqalə</option>
@@ -55,12 +55,17 @@
       </select> -->
 
 <br>
-
+<!-- <a href="/author">  -->
+    
+    
 <div class="col-lg-12">
     <div class="alert-msg" style="text-align: left;"></div>
-    <button type="submit" class="primary-btn text-uppercase"> Göndər </a> </button>
+   <button type="submit" class="text-white primary-btn text-uppercase "> Göndər </a> </button> 
 </div>
 
+
+<!-- </a> -->
+<br>    
 </form>
 
 </div>

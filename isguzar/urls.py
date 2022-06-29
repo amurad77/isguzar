@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from core.views import (
     home,
@@ -43,10 +43,17 @@ from article.views import (
     article,
     article_detail,
     search,
-    popular_article
+    popular_article,
+    marketing,
+    brand_stories,
+    human_resources,
+    logistics,
+    health
 )
 
 urlpatterns = [
+    path('', include('news.urls')),
+    # path('tinymce/', include('tinymce.urls')),
     path('admin/', admin.site.urls),
     path('', home),
     path('contact/', contact, name = 'contact'),
@@ -55,6 +62,11 @@ urlpatterns = [
     path('news/', news),
     path('author/', author),
     path('article/', article),
+    path('category/marketing_articles', marketing),
+    path('category/brand_stories_articles', brand_stories),
+    path('category/human_resources_articles', human_resources),
+    path('category/logistics_articles', logistics),
+    path('category/health_articles', health),
     path('popular_article/', popular_article),
     path('article_detail/<slug:slug>/', article_detail, name = 'article_detail'),
     path('career_center_detail/<slug:slug>/', career_center_detail, name = 'career_center_detail'),

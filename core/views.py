@@ -28,7 +28,8 @@ def home(request):
         else:
             print('Form is invalid')
 
-
+    last7_brend = Article.objects.filter(tags='2')[0:][:7]
+    # print(last7_brend)
     career_center_home = CareerCenter.objects.all().order_by('-id')[:9]
     
     query = request.GET.get('q')
@@ -42,7 +43,7 @@ def home(request):
     popular_list2 = Article.objects.all().order_by('-views', '-id')[1:] [:1]
     popular_list3 = Article.objects.all().order_by('-views', '-id')[2:] [:1]
     news_comments_count = NewsComments.objects.filter()
-    print(news1)
+    # print(news1)
     # news_comments = News.objects.comments.all()
 
     context = {
@@ -56,6 +57,7 @@ def home(request):
         'form' : form,
         'news_comments_count' : news_comments_count,
         'career_center_home' : career_center_home,
+        'last7_brend': last7_brend
 
 
     }
@@ -87,6 +89,10 @@ def career_center(request):
 
 
 def career_center_detail(request, slug):
+
+    # career_center_related = CareerCenter.objects.filter(category=self.get_object().category).exclude(id=slug.get_object().id)
+
+
     career_center_related = CareerCenter.objects.all().order_by('-id')[:3]
 
     career_center = get_object_or_404(CareerCenter, slug = slug)

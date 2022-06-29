@@ -3,13 +3,30 @@ from datetime import datetime
 from django.urls import reverse
 from django.utils.text import slugify
 
-class Tags(models.Model):
+class ArticleTags(models.Model):
     tags = models.CharField('Tag', max_length = 50)
 
     def __str__(self):
         return self.tags
 
+
+class NewsTags(models.Model):
+    tags = models.CharField('Tag', max_length = 50)
+
+    def __str__(self):
+        return self.tags
+
+
+class CareerCenterCategory(models.Model):
+    title = models.CharField('Elanın kateqoriyası', max_length = 50)
+
+    def __str__(self):
+        return self.title
+
 class CareerCenter(models.Model):
+    #relation's
+    category = models.ForeignKey(CareerCenterCategory, on_delete = models.CASCADE)
+
     # information
     logo = models.ImageField('Logo', upload_to = 'media/creer_center', null = True, blank = True)
     title = models.CharField('Basliq', max_length = 50)

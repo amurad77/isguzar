@@ -36,20 +36,20 @@
     <section class="latest-post-area pb-120">
     <div class="container no-padding">
 
-
-
-    <div class="row">
-    <div class=" post-list">
-    
-    <div class="single-post-wrap">
-    <div class="row feature-img-thumb relative">
-    <!-- <div class="overlay overlay-bg"></div> -->
-    <img  class="col-lg-3 img-fluid" src="{{ career_center.logo.url }}" alt="" data-pagespeed-url-hash="3036699310" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
         
-        <div class="ml-3">
-            <h3 >{{ career_center.title }}</h3>
-            
-
+        
+        <div class="row">
+            <div class=" post-list">
+                
+                <div class="single-post-wrap">
+                    <div class="row feature-img-thumb relative">
+                        <!-- <div class="overlay overlay-bg"></div> -->
+                        <img style="height: 130px; width: 600px;"  class="col-lg-3 img-fluid" src="{{ career_center.logo.url }}" alt="" data-pagespeed-url-hash="3036699310" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+                        
+                        <div class="ml-3">
+                            <h3 >{{ career_center.title }}</h3>
+                            
+                            
 
             <div class="mt-4" style="display: block;">
 
@@ -58,7 +58,7 @@
             </div>
             <span> {{ career_center.adress }} </span>
         <ul class="meta ">
-            <li><a href="https://preview.colorlib.com/theme/magazine/image-post.html#"><i style="margin-right: 6px;" class="fa-solid fa-calendar-days"></i>{{ career_center.created_at }}</a></li>
+            <li><a href=""><i style="margin-right: 6px;" class="fa-solid fa-calendar-days"></i>{{ career_center.created_at }}</a></li>
             <li><a href="#"><i style="margin-right: 6px;" class="fa-solid fa-eye"></i></i>{{career_center.views}}</a></li>
         
             </ul>
@@ -81,16 +81,16 @@
         {% endfor %}
     </ul>
 
-
-
-
-     
-
-    </div>
-    </div>
-    </div>    
-    </div>
-    </div>
+    
+    
+    
+    
+    
+</div>
+</div>
+</div>    
+</div>
+</div>
 
 
 
@@ -105,7 +105,7 @@
                 {% for i in career_center_related %}
                 <div class="col-md-3 ">
                     <div class="card bg-c-blue order-card">
-                        <img src="{{ i.logo.url }}" alt="">
+                        <img style="height: 130px;" src="{{ i.logo.url }}" alt="">
                     <!-- <div class="card-block">
                         <h6 class="m-b-20 order-card">{{ i.tittle }}</h6>
                         <h2 class="text-right"><i class="fa fa-cart-plus f-left"></i><span>486</span></h2>
@@ -124,6 +124,10 @@
         </div>
 
     </div>  
+
+
+
+
 
     </div>
 

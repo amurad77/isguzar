@@ -6,8 +6,10 @@ from django.utils.text import slugify
 # from isguzar.commons import slugify
 from django.urls import reverse
 from article.models import *
-from core.models import Tags
+from core.models import NewsTags
 
+
+from tinymce import models as tinymce_models
 # Create your models here.
 
 
@@ -18,11 +20,11 @@ User = get_user_model()
 class News(models.Model):
     # relation
     owner =  models.ForeignKey(User, on_delete = models.CASCADE, related_name='news')
-    tags = models.ForeignKey(Tags, on_delete = models.CASCADE)
+    tags = models.ForeignKey(NewsTags, on_delete = models.CASCADE)
 
     # information
     title = models.CharField('Basliq', max_length = 50)
-    descrtiption = models.CharField('Məzmun', max_length = 500)
+    descrtiption = tinymce_models.HTMLField('Məzmun', max_length = 5000)
     slug = models.SlugField('Slug', max_length = 110, unique = True, editable = False)
     views = models.PositiveIntegerField(default = 0)
     image = models.ImageField("Şekil", upload_to = 'media/news_images', null=True, blank=True)

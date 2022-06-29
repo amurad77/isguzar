@@ -1,17 +1,19 @@
 from django import forms
 from .models import Subscribe, Contact, Author
+from django.utils.translation import gettext as _
+
 
 WORKING_CHOICES =(
-    ("1", "Sektordayam"),
-    ("2", "Tələbəyəm"),
-    ("3", "İşləmirəm")
+    (1, _("Sektordayam")),
+    (2, _("Tələbəyəm")),
+    (3, _("İşləmirəm"))
 )
 
-TIME = (
-    ("1", "Həftədə 1-2 məqalə"),
-    ("2", "Həftədə 3-4 məqalə"),
-    ("3", "Ayda 1-2 məqalə")
-)
+    # TIME = (
+    #     ("1", "Həftədə 1-2 məqalə"),
+    #     ("2", "Həftədə 3-4 məqalə"),
+    #     ("3", "Ayda 1-2 məqalə")
+    # )
 
 
 
@@ -44,7 +46,13 @@ class AuthorForm(forms.ModelForm):
                                     'class': 'common-input mb-20 form-control',
                                     'placeholder': 'Telefon',
                                     }),
-            'working_status': forms.ChoiceField(choices = WORKING_CHOICES),
+                                    
+            'working_status': forms.TextInput(attrs={
+                                    'class': 'common-input mb-20 form-control',
+                                    'placeholder': 'Hal hazırda işləyirsiniz? (Nə?)',
+                                    }),
+
+
             'education_industry': forms.TextInput(attrs={
                                     'class': 'common-input mb-20 form-control',
                                     'placeholder': 'Təhsil və sənayə təcrübəniz',
@@ -53,7 +61,10 @@ class AuthorForm(forms.ModelForm):
                                     'class': 'common-input mb-20 form-control',
                                     'placeholder': 'Hansı mövzuda yaza bilərsiniz?',
                                     }),
-            'time': forms.ChoiceField(choices = TIME),
+            'time': forms.TextInput(attrs={
+                                    'class': 'common-input mb-20 form-control',
+                                    'placeholder': 'Nə qədər vaxtdan bir məzmun təqdim edə bilərsiniz?',
+                                    })
         }
 
 class ContactForm(forms.ModelForm):
@@ -108,7 +119,7 @@ class SubscribeForm(forms.ModelForm):
 
             'email': forms.EmailInput(attrs={
                                     'class': 'common-input mb-20 form-control',
-                                    'placeholder': 'Enter email address',
+                                    'placeholder': 'E-poçt ünvanınızı daxil edin',
                                     'id': 'value1'
                                     
                                 })

@@ -5,7 +5,7 @@ from comments.models import NewsComments
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from contact.forms import SubscribeForm
 from django.contrib import messages
-
+from article.models import Article
 # from article.models import Article
 from django.db.models import Q
 from comments.forms import NewsCommentForm
@@ -16,12 +16,23 @@ from django.contrib.auth.decorators import login_required
 
 
 def business(request):
+    last7_brend = Article.objects.filter(tags='2').order_by('-id')[0:7]
     business_news = News.objects.filter(tags='2')
     print('----------------------------------------------------------------------------------')
     print(business_news)
     print('----------------------------------------------------------------------------------')
 
-
+    form = SubscribeForm()
+    if request.method == 'POST':
+        subscribe_data = request.POST
+        form = SubscribeForm(data = subscribe_data)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Mesajınız qeydə alındı')
+            return HttpResponseRedirect('/')
+            print('Form save')
+        else:
+            print('Form is invalid')
 
     page_num = request.GET.get('page', 1)
 
@@ -38,18 +49,32 @@ def business(request):
 
     context = {
         'business_news' : business_news,
-        'page_obj': page_obj
+        'page_obj': page_obj,
+        'form': form,
+        'last7_brend': last7_brend
     }
 
     return render(request, 'businnes.html', context)
 
+
 def sciene_and_technology(request):
+    last7_brend = Article.objects.filter(tags='2').order_by('-id')[0:7]
     sciene_and_technology_news = News.objects.filter(tags='1')
     print('----------------------------------------------------------------------------------')
     print(sciene_and_technology_news)
     print('----------------------------------------------------------------------------------')
 
-
+    form = SubscribeForm()
+    if request.method == 'POST':
+        subscribe_data = request.POST
+        form = SubscribeForm(data = subscribe_data)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Mesajınız qeydə alındı')
+            return HttpResponseRedirect('/')
+            print('Form save')
+        else:
+            print('Form is invalid')
 
     page_num = request.GET.get('page', 1)
 
@@ -66,19 +91,32 @@ def sciene_and_technology(request):
 
     context = {
         'sciene_and_technology' : sciene_and_technology_news,
-        'page_obj': page_obj
+        'page_obj': page_obj,
+        'form': form,
+        'last7_brend': last7_brend
     }
 
     return render(request, 'sciene_and_technology.html', context)
 
 
 def design_and_innovation(request):
+    last7_brend = Article.objects.filter(tags='2').order_by('-id')[0:7]
     design_and_innovation_news = News.objects.filter(tags='3')
     print('----------------------------------------------------------------------------------')
     print(design_and_innovation_news)
     print('----------------------------------------------------------------------------------')
 
-
+    form = SubscribeForm()
+    if request.method == 'POST':
+        subscribe_data = request.POST
+        form = SubscribeForm(data = subscribe_data)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Mesajınız qeydə alındı')
+            return HttpResponseRedirect('/')
+            print('Form save')
+        else:
+            print('Form is invalid')
 
     page_num = request.GET.get('page', 1)
 
@@ -95,19 +133,32 @@ def design_and_innovation(request):
 
     context = {
         'design_and_innovation' : design_and_innovation_news,
-        'page_obj': page_obj
+        'page_obj': page_obj,
+        'form': form,
+        'last7_brend': last7_brend
     }
 
     return render(request, 'design_and_innovation.html', context)
 
 
 def art_and_culture(request):
+    last7_brend = Article.objects.filter(tags='2').order_by('-id')[0:7]
     art_and_culture_news = News.objects.filter(tags='4')
     print('----------------------------------------------------------------------------------')
     print(art_and_culture_news)
     print('----------------------------------------------------------------------------------')
 
-
+    form = SubscribeForm()
+    if request.method == 'POST':
+        subscribe_data = request.POST
+        form = SubscribeForm(data = subscribe_data)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Mesajınız qeydə alındı')
+            return HttpResponseRedirect('/')
+            print('Form save')
+        else:
+            print('Form is invalid')
 
     page_num = request.GET.get('page', 1)
 
@@ -124,22 +175,35 @@ def art_and_culture(request):
 
     context = {
         'art_and_culture' : art_and_culture_news,
-        'page_obj': page_obj
+        'page_obj': page_obj,
+        'form': form,
+        'last7_brend': last7_brend
     }
 
     return render(request, 'art_and_culture.html', context)
 
 
 def news_detail(request, slug):
-
+    last7_brend = Article.objects.filter(tags='2').order_by('-id')[0:7]
+    form = SubscribeForm()
+    if request.method == 'POST':
+        subscribe_data = request.POST
+        form = SubscribeForm(data = subscribe_data)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Mesajınız qeydə alındı')
+            return HttpResponseRedirect('/')
+            print('Form save')
+        else:
+            print('Form is invalid')
 
 
     news = get_object_or_404(News, slug = slug)
     # article = get_object_or_404(Article, slug = slug)
-    form = NewsCommentForm(request.POST or None)
+    CommentForm = NewsCommentForm(request.POST or None)
 
-    if form.is_valid():
-        comment = form.save(commit = False)
+    if CommentForm.is_valid():
+        comment = CommentForm.save(commit = False)
         comment.news = news
         comment.save()
         return HttpResponseRedirect(news.get_absolute_url())
@@ -155,7 +219,9 @@ def news_detail(request, slug):
     context = {
         'news_comments_count_detail' : news_comments_count_detail,
         'news' : news,
-        'form' : form,
+        'CommentForm' : CommentForm,
+        'form': form,
+        'last7_brend': last7_brend
     }
     # print(news.comment.all())
     return render(request, 'detail_news.html', context)
@@ -164,8 +230,18 @@ def news_detail(request, slug):
 
 def news(request):
 
-
-
+    last7_brend = Article.objects.filter(tags='2').order_by('-id')[0:7]
+    form = SubscribeForm()
+    if request.method == 'POST':
+        subscribe_data = request.POST
+        form = SubscribeForm(data = subscribe_data)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Mesajınız qeydə alındı')
+            return HttpResponseRedirect('/')
+            print('Form save')
+        else:
+            print('Form is invalid')
 
 
     news = News.objects.all().order_by('-id')
@@ -185,7 +261,9 @@ def news(request):
 
     context = {
         'news': page_obj.object_list,
-        'page_obj': page_obj
+        'page_obj': page_obj,
+        'form': form,
+        'last7_brend': last7_brend
     }
     return render (request, 'news.html', context)
 

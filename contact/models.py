@@ -1,13 +1,13 @@
 from django.db import models
 from datetime import datetime
 from django.urls import reverse
-
+from django.utils.translation import gettext as _
 # Create your models here.
 
 WORKING_CHOICES =(
-    ("1", "Sektordayam"),
-    ("2", "Tələbəyəm"),
-    ("3", "İşləmirəm")
+    (1, _("Sektordayam")),
+    (2, _("Tələbəyəm")),
+    (3, _("İşləmirəm"))
 )
 
 TIME = (
@@ -50,7 +50,7 @@ class Author(models.Model):
     name_surname = models.CharField('Ad və Soyad',  max_length = 150)
     mail = models.CharField('E-mail',  max_length = 150)
     phono = models.CharField('Telefon',  max_length = 150)
-    working_status = models.CharField('Iş vəiyyətiniz',  max_length = 150, choices = WORKING_CHOICES)
+    working_status = models.CharField('Hal hazırda işləyirsiniz? (Nə?)', max_length = 150)
     education_industry = models.CharField('Təhsil və sənayə təcrübəniz',  max_length = 150)
     subjects = models.CharField('Hansı mövzuda yaza bilərsiniz?',  max_length = 150)
-    time = models.CharField('Nə qədər vaxtdan bir məzmun təqdim edə bilərsiniz?',  max_length = 150, choices = TIME)
+    time = models.CharField('Nə qədər vaxtdan bir məzmun təqdim edə bilərsiniz?',  max_length = 150)
