@@ -46,11 +46,29 @@ class Subscribe(models.Model):
         return self.email
 
 
+# class Author(models.Model):
+#     name_surname = models.CharField('Ad və Soyad',  max_length = 150)
+#     mail = models.CharField('E-mail',  max_length = 150)
+#     phono = models.CharField('Telefon',  max_length = 150)
+#     working_status = models.CharField('Hal hazırda işləyirsiniz? (Nə?)', max_length = 150)
+#     education_industry = models.CharField('Təhsil və sənayə təcrübəniz',  max_length = 150)
+#     subjects = models.CharField('Hansı mövzuda yaza bilərsiniz?',  max_length = 150)
+#     time = models.CharField('Nə qədər vaxtdan bir məzmun təqdim edə bilərsiniz?',  max_length = 150)
+
+
 class Author(models.Model):
-    name_surname = models.CharField('Ad və Soyad',  max_length = 150)
-    mail = models.CharField('E-mail',  max_length = 150)
-    phono = models.CharField('Telefon',  max_length = 150)
+    # information
+    name = models.CharField('Ad və Soyad', max_length = 150)
+    email = models.EmailField('E-mail', max_length = 150)
+    phone = models.CharField('Telefon',  max_length = 150)
     working_status = models.CharField('Hal hazırda işləyirsiniz? (Nə?)', max_length = 150)
     education_industry = models.CharField('Təhsil və sənayə təcrübəniz',  max_length = 150)
     subjects = models.CharField('Hansı mövzuda yaza bilərsiniz?',  max_length = 150)
     time = models.CharField('Nə qədər vaxtdan bir məzmun təqdim edə bilərsiniz?',  max_length = 150)
+
+    # moderations
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.name

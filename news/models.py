@@ -23,13 +23,25 @@ class News(models.Model):
     tags = models.ForeignKey(NewsTags, on_delete = models.CASCADE)
 
     # information
-    title = models.CharField('Basliq', max_length = 50)
-    descrtiption = tinymce_models.HTMLField('Məzmun', max_length = 5000)
+    detail_image = models.ImageField("Şekil", upload_to = 'media/news_images', null=True, blank=True)
+    detail_image2 = models.ImageField("Şekil", upload_to = 'media/news_images', null=True, blank=True)
+    detail_image3 = models.ImageField("Şekil", upload_to = 'media/news_images', null=True, blank=True)
+    detail_image4 = models.ImageField("Şekil", upload_to = 'media/news_images', null=True, blank=True)
+    detail_image5 = models.ImageField("Şekil", upload_to = 'media/news_images', null=True, blank=True)
+    detail_image6 = models.ImageField("Şekil", upload_to = 'media/news_images', null=True, blank=True)
+    title = models.CharField('Basliq', max_length = 250)
+    descrtiption = tinymce_models.HTMLField('Məzmun', max_length = 5000, null=True, blank=True)
+    descrtiption2 = tinymce_models.HTMLField('Məzmun', max_length = 5000, null=True, blank=True)
+    descrtiption3 = tinymce_models.HTMLField('Məzmun', max_length = 5000, null=True, blank=True)
+    descrtiption4 = tinymce_models.HTMLField('Məzmun', max_length = 5000, null=True, blank=True)
+    descrtiption5 = tinymce_models.HTMLField('Məzmun', max_length = 5000, null=True, blank=True)
+    descrtiption6 = tinymce_models.HTMLField('Məzmun', max_length = 5000, null=True, blank=True)
+
     slug = models.SlugField('Slug', max_length = 110, unique = True, editable = False)
     views = models.PositiveIntegerField(default = 0)
     image = models.ImageField("Şekil", upload_to = 'media/news_images', null=True, blank=True)
     time = models.PositiveIntegerField('Neçə dəqiqəlik xəbər', default = 0)
-
+    video_link = models.URLField(max_length=300, blank=True, null=True)
     # moderations
     is_published = models.BooleanField('is published', default=True)
     created_at = models.DateTimeField(auto_now_add = True)

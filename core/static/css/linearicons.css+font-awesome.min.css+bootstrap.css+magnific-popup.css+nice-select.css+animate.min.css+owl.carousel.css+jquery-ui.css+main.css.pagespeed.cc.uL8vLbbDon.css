@@ -2655,9 +2655,14 @@ $black			: #222;
   background-color: #4a9efb;
   color: #fff;
 }
-
+.ali1{
+  size: 30px !important;
+}
+.ali{
+  font-size: 50px !important;
+}
 body {
-  color: #777777;
+  color: rgb(27, 27, 27);
   font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-weight: 300;
@@ -2717,7 +2722,7 @@ a, a:focus, a:hover {
 h1, h3,
 h4, h5, h6 {
   font-family: "Poppins", sans-serif;
-  color: #222222;
+  color: #4a9efb;
   line-height: 1.2em !important;
   margin-bottom: 0;
   margin-top: 0;
@@ -2730,7 +2735,7 @@ h4, h5, h6 {
   margin-top: 0;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
-  color: #222222;
+  color: #4a9efb;
 }
 
 h1, .h1 {
@@ -2751,7 +2756,7 @@ h5, .h5 {
 
 h6, .h6 {
   font-size: 14px;
-  color: #222222;
+  color: #4a9efb;
 }
 
 td, th {
@@ -3011,7 +3016,7 @@ header {
 }
 
 .main-menu {
-  background: #04091e;
+  background: #4a9efb;
   padding: 15px 20px;
   position: relative;
 }
@@ -3109,7 +3114,7 @@ header {
   display: inline-block;
   color: #fff;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 18px;
   text-transform: uppercase;
   outline: none;
 }
@@ -3134,7 +3139,7 @@ header {
   color: #333;
   transition: 0.3s;
   display: block;
-  font-size: 12px;
+  font-size: 16px;
   text-transform: none;
 }
 
@@ -3647,7 +3652,7 @@ body {
 }
 
 .top-post-area .news-tracker-wrap a {
-  color: #222;
+  color: #4a9efb;
 }
 
 /*-------- End top-post Style -------------*/
@@ -3668,9 +3673,9 @@ body {
 }
 
 .latest-post-area .latest-post-wrap .cat-title {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 600;
-  background: #04091e;
+  background: #4a9efb;
   color: #fff;
   padding: 10px 25px;
 }
@@ -3786,9 +3791,9 @@ body {
 }
 
 .popular-post-wrap .title {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 600;
-  background: #04091e;
+  background: #4a9efb;
   color: #fff;
   padding: 10px 25px;
   margin-bottom: 20px;
@@ -3971,9 +3976,9 @@ body {
 }
 
 .relavent-story-post-wrap .title {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 600;
-  background: #04091e;
+  background: #4a9efb;
   color: #fff;
   padding: 10px 25px;
   margin-bottom: 20px;
@@ -4090,7 +4095,8 @@ body {
 }
 
 .single-sidebar-widget .title {
-  background: #04091e;
+  font-size: 18px;
+  background: #4a9efb;
   color: #fff;
   padding: 12px 20px;
   margin-bottom: 20px;

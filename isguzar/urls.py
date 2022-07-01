@@ -27,8 +27,8 @@ from core.views import (
 )
 
 from contact.views import (
-    contact,
-    author
+contact,
+author
 )
 
 from news.views import (
