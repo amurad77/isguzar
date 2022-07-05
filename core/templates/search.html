@@ -23,7 +23,7 @@
     <div class="hero-nav-area">
     <h1 class="text-white">Axtarış</h1>
     
-    <p class="text-white link-nav"><a href="/home">Home </a> <i class="fa-solid fa-angle-right"></i><a href="">Axtarış </a></p>
+    <p class="text-white link-nav"><a href="/home">Ana səhifə </a> <i class="fa-solid fa-angle-right"></i><a href="">Axtarış </a></p>
     </div>
     </div>
     <div class="col-lg-12">
@@ -82,16 +82,16 @@
 
 
     <div class="col-lg-7 post-right">
-    <a href="news/{{i.slug}}">
+    <a href="/news_detail/{{i.slug}}">
     <h4> {{i.title|truncatechars:40 }} </h4>
     </a>
     <ul class="meta">
-        <li><a href="#"><i style="margin-right: 6px;" class="fa-solid fa-user"></i>{{i.owner}}    </a></li>
+        <li><a href="#"><i style="margin-right: 6px;" class="fa-solid fa-user"></i>{{i.owner}}</a></li>
         <li><a href="#"><i style="margin-right: 6px;" class="fa-solid fa-calendar-days"></i> {{i.created_at}}    </a></li>
         <li><a href="#"><i style="margin-right: 6px;" class="fa-solid fa-comment"></i>06 Comments</a></li>
         </ul> 
     <p class="excert">
-        {{i.descrtiption|truncatechars:150}}
+        {{i.descrtiption|truncatechars:150|safe}}
     </p>
     </div>
     {% endfor %}
@@ -123,200 +123,8 @@
     </div>
 
 
-
-
-
-
-
-
-
     {% include "./includes/right_part.html"%} 
-    <!-- <div class="col-lg-4">
-        <div class="sidebars-area">
-        <div class="single-sidebar-widget editors-pick-widget">
-        <h6 class="title">Lorem ipsum</h6>
-        <div class="editors-pick-post">
-        <div class="feature-img-wrap relative">
-        <div class="feature-img relative">
-        <div class="overlay overlay-bg"></div>
-        <img class="img-fluid" src="../static/images/e1.jpg" alt="" data-pagespeed-url-hash="3111915323" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
-        </div>
-        <ul class="tags">
-        <li><a href="#">Travel</a></li>
-        </ul>
-        </div>
-        <div class="details">
-        <a href="#">
-        <h4 class="mt-20">Lorem, ipsum dolor sit 
-            amet consectetur adipisicing elit. </h4>
-        </a>
-        <ul class="meta">
-            <li><a href="#"><i style="margin-right: 6px;" class="fa-solid fa-user"></i>user</a></li>
-            <li><a href="#"><i style="margin-right: 6px;" class="fa-solid fa-calendar-days"></i>16 may 2022</a></li>
-            </ul>
-        <p class="excert">
-        Lorem ipsum dolor sit amet, consecteturadip isicing elit, sed do eiusmod tempor incididunt ed do eius.
-        </p>
-        </div>
-        <div class="post-lists">
-        <div class="single-post d-flex flex-row">
-        <div class="thumb">
-        <img src="../static/images/e2.jpg" alt="" data-pagespeed-url-hash="3406415244" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
-        </div>
-        <div class="detail">
-        <a href="#"><h6>Lorem, ipsum dolor sit 
-            amet consectetur adipisicing elit.</h6></a>
-        <ul class="meta">
-            <li><a href="#"><i style="margin-right: 6px;" class="fa-solid fa-user"></i>user</a></li>
-            <li><a href="#"><i style="margin-right: 6px;" class="fa-solid fa-calendar-days"></i>12 may 2022</a></li>
-            </ul>
-        </div>
-        </div>
-        <div class="single-post d-flex flex-row">
-        <div class="thumb">
-        <img src="../static/images/e3.jpg" alt="" data-pagespeed-url-hash="3700915165" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
-        </div>
-        <div class="detail">
-        <a href="#"><h6>Lorem, ipsum dolor sit 
-            amet consectetur adipisicing elit.</h6></a>
-        <ul class="meta">
-            <li><a href="#"><i style="margin-right: 6px;" class="fa-solid fa-user"></i>user</a></li>
-            <li><a href="#"><i style="margin-right: 6px;" class="fa-solid fa-calendar-days"></i>12 may 2022</a></li>
-            </ul>
-        </div>
-        </div>
-        <div class="single-post d-flex flex-row">
-        <div class="thumb">
-        <img src="../static/images/e4.jpg" alt="" data-pagespeed-url-hash="3995415086" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
-        </div>
-        <div class="detail">
-        <a href="#"><h6>Lorem, ipsum dolor sit 
-            amet consectetur adipisicing elit.</h6></a>
-        <ul class="meta">
-            <li><a href="#"><i style="margin-right: 6px;" class="fa-solid fa-user"></i>user</a></li>
-            <li><a href="#"><i style="margin-right: 6px;" class="fa-solid fa-calendar-days"></i>12 may 2022</a></li>
-            </ul>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
-        <div class="single-sidebar-widget ads-widget">
-        <img class="img-fluid" src="../static/images/sidebar-ads.jpg" alt="" data-pagespeed-url-hash="3321942762" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
-        </div>
-        
-        
-        
-        
-        
-        
-        
-  
-        
-        
-        
-        
-        
-        
-        
-        <div class="single-sidebar-widget most-popular-widget">
-        <h6 class="title">Lorem, ipsum</h6>
-        <div class="single-list flex-row d-flex">
-        <div class="thumb">
-        <img src="../static/images/m1.jpg" alt="" data-pagespeed-url-hash="2510187219" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
-        </div>
-        <div class="details">
-        <a href="#">
-        <h6>Lorem, ipsum dolor sit 
-            amet consectetur adipisicing elit.</h6>
-        </a>
-        <ul class="meta">
-            <li><a href="#"><i style="margin-right: 6px;" class="fa-solid fa-user"></i>user</a></li>
-            <li><a href="#"><i style="margin-right: 6px;" class="fa-solid fa-calendar-days"></i>12 may 2022</a></li>
-            </ul>
-        </div>
-        </div>
-        <div class="single-list flex-row d-flex">
-        <div class="thumb">
-        <img src="../static/images/m2.jpg" alt="" data-pagespeed-url-hash="2804687140" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
-        </div>
-        <div class="details">
-        <a href="#">
-        <h6>Lorem, ipsum dolor sit 
-            amet consectetur adipisicing elit.</h6>
-        </a>
-        <ul class="meta">
-            <li><a href="#"><i style="margin-right: 6px;" class="fa-solid fa-user"></i>user</a></li>
-            <li><a href="#"><i style="margin-right: 6px;" class="fa-solid fa-calendar-days"></i>12 may 2022</a></li>
-            </ul>
-        </div>
-        </div>
-        <div class="single-list flex-row d-flex">
-        <div class="thumb">
-        <img src="../static/images/m3.jpg" alt="" data-pagespeed-url-hash="3099187061" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
-        </div>
-        <div class="details">
-        <a href="#">
-        <h6>Lorem, ipsum dolor sit 
-            amet consectetur adipisicing elit. </h6>
-        </a>
-        <ul class="meta">
-            <li><a href="#"><i style="margin-right: 6px;" class="fa-solid fa-user"></i>user</a></li>
-            <li><a href="#"><i style="margin-right: 6px;" class="fa-solid fa-calendar-days"></i>12 may 2022</a></li>
-            </ul>
-        </div>
-        </div>
-        <div class="single-list flex-row d-flex">
-        <div class="thumb">
-        <img src="../static/images/m4.jpg" alt="" data-pagespeed-url-hash="3393686982" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
-        </div>
-        <div class="details">
-        <a href="#">
-        <h6>Lorem, ipsum dolor sit 
-            amet consectetur adipisicing elit.</h6>
-        </a>
-        <ul class="meta">
-            <li><a href="#"><i style="margin-right: 6px;" class="fa-solid fa-user"></i>user</a></li>
-            <li><a href="#"><i style="margin-right: 6px;" class="fa-solid fa-calendar-days"></i>12 may 2022</a></li>
-            </ul>
-        </div>
-        </div>
-        </div>
-        <div class="single-sidebar-widget social-network-widget">
-        <h6 class="title">Sosial şəbəkə</h6>
-        <ul class="social-list">
-        <li class="d-flex justify-content-between align-items-center fb">
-        <div class="icons d-flex flex-row align-items-center">
-        <i class="fa fa-facebook" aria-hidden="true"></i>
-        <p>983 Bəyənmə</p>
-        </div>
-        <a href="#">Səhifəni bəyən</a>
-        </li>
-        <li class="d-flex justify-content-between align-items-center tw">
-        <div class="icons d-flex flex-row align-items-center">
-        <i class="fa fa-twitter" aria-hidden="true"></i>
-        <p>983 İzləyici</p>
-        </div>
-        <a href="#">Bizi izlə</a>
-        </li>
-        <li class="d-flex justify-content-between align-items-center yt">
-        <div class="icons d-flex flex-row align-items-center">
-        <i class="fa fa-youtube-play" aria-hidden="true"></i>
-        <p>983 Abunəçi</p>
-        </div>
-        <a href="#">Abunə ol</a>
-        </li>
-        <li class="d-flex justify-content-between align-items-center rs">
-        <div class="icons d-flex flex-row align-items-center">
-        <i class="fa fa-rss" aria-hidden="true"></i>
-        <p>983 Abunəçi</p>
-        </div>
-        <a href="#">Abunə ol</a>
-        </li>
-        </ul>
-        </div>
-        </div>
-        </div> -->
+    
     </div>
     </div>
     </section>

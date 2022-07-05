@@ -16,7 +16,7 @@ from django.contrib.auth.decorators import login_required
 
 
 def business(request):
-    last7_brend = Article.objects.filter(tags='2').order_by('-id')[0:7]
+    last7_brend = Article.objects.filter(tags='5').order_by('-id')[0:7]
     business_news = News.objects.filter(tags='2')
     print('----------------------------------------------------------------------------------')
     print(business_news)
@@ -58,7 +58,7 @@ def business(request):
 
 
 def sciene_and_technology(request):
-    last7_brend = Article.objects.filter(tags='2').order_by('-id')[0:7]
+    last7_brend = Article.objects.filter(tags='5').order_by('-id')[0:7]
     sciene_and_technology_news = News.objects.filter(tags='1')
     print('----------------------------------------------------------------------------------')
     print(sciene_and_technology_news)
@@ -100,7 +100,7 @@ def sciene_and_technology(request):
 
 
 def design_and_innovation(request):
-    last7_brend = Article.objects.filter(tags='2').order_by('-id')[0:7]
+    last7_brend = Article.objects.filter(tags='5').order_by('-id')[0:7]
     design_and_innovation_news = News.objects.filter(tags='3')
     print('----------------------------------------------------------------------------------')
     print(design_and_innovation_news)
@@ -142,7 +142,7 @@ def design_and_innovation(request):
 
 
 def art_and_culture(request):
-    last7_brend = Article.objects.filter(tags='2').order_by('-id')[0:7]
+    last7_brend = Article.objects.filter(tags='5').order_by('-id')[0:7]
     art_and_culture_news = News.objects.filter(tags='4')
     print('----------------------------------------------------------------------------------')
     print(art_and_culture_news)
@@ -184,7 +184,10 @@ def art_and_culture(request):
 
 
 def news_detail(request, slug):
-    last7_brend = Article.objects.filter(tags='2').order_by('-id')[0:7]
+    # next = 
+
+
+    last7_brend = Article.objects.filter(tags='5').order_by('-id')[0:7]
     form = SubscribeForm()
     if request.method == 'POST':
         subscribe_data = request.POST
@@ -230,7 +233,7 @@ def news_detail(request, slug):
 
 def news(request):
 
-    last7_brend = Article.objects.filter(tags='2').order_by('-id')[0:7]
+    last7_brend = Article.objects.filter(tags='5').order_by('-id')[0:7]
     form = SubscribeForm()
     if request.method == 'POST':
         subscribe_data = request.POST

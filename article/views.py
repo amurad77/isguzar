@@ -14,7 +14,7 @@ from django.contrib.auth.decorators import login_required
 
 
 def marketing(request):
-    last7_brend = Article.objects.filter(tags='2').order_by('-id')[0:7]
+    last7_brend = Article.objects.filter(tags='5').order_by('-id')[0:7]
     marketing_articles = Article.objects.filter(tags='1')
     print('----------------------------------------------------------------------------------')
     print(marketing_articles)
@@ -56,8 +56,8 @@ def marketing(request):
 
 
 def brand_stories(request):
-    last7_brend = Article.objects.filter(tags='2').order_by('-id')[0:7]
-    brand_stories = Article.objects.filter(tags='2')
+    last7_brend = Article.objects.filter(tags='5').order_by('-id')[0:7]
+    brand_stories = Article.objects.filter(tags='5')
     print('----------------------------------------------------------------------------------')
     print(brand_stories)
     print('----------------------------------------------------------------------------------')
@@ -98,8 +98,8 @@ def brand_stories(request):
 
 
 def human_resources(request):
-    last7_brend = Article.objects.filter(tags='2').order_by('-id')[0:7]
-    human_resources = Article.objects.filter(tags='3')
+    last7_brend = Article.objects.filter(tags='5').order_by('-id')[0:7]
+    human_resources = Article.objects.filter(tags='2')
     print('----------------------------------------------------------------------------------')
     print(human_resources)
     print('----------------------------------------------------------------------------------')
@@ -140,8 +140,8 @@ def human_resources(request):
 
 
 def logistics(request):
-    last7_brend = Article.objects.filter(tags='2').order_by('-id')[0:7]
-    logistics = Article.objects.filter(tags='4')
+    last7_brend = Article.objects.filter(tags='5').order_by('-id')[0:7]
+    logistics = Article.objects.filter(tags='3')
     print('----------------------------------------------------------------------------------')
     print(logistics)
     print('----------------------------------------------------------------------------------')
@@ -182,8 +182,8 @@ def logistics(request):
 
 
 def health(request):
-    last7_brend = Article.objects.filter(tags='2').order_by('-id')[0:7]
-    health = Article.objects.filter(tags='5')
+    last7_brend = Article.objects.filter(tags='5').order_by('-id')[0:7]
+    health = Article.objects.filter(tags='4')
     print('----------------------------------------------------------------------------------')
     print(health)
     print('----------------------------------------------------------------------------------')
@@ -225,7 +225,7 @@ def health(request):
 
 
 def article_detail(request, slug):
-    last7_brend = Article.objects.filter(tags='2').order_by('-id')[0:7]
+    last7_brend = Article.objects.filter(tags='5').order_by('-id')[0:7]
     form = SubscribeForm()
     if request.method == 'POST':
         subscribe_data = request.POST
@@ -282,7 +282,7 @@ def add_comment_to_post(request, pk):
 
 
 def article(request):
-    last7_brend = Article.objects.filter(tags='2').order_by('-id')[0:7]
+    last7_brend = Article.objects.filter(tags='5').order_by('-id')[0:7]
     form = SubscribeForm()
     if request.method == 'POST':
         subscribe_data = request.POST
@@ -321,7 +321,7 @@ def article(request):
 
 
 def popular_article(request):
-    last7_brend = Article.objects.filter(tags='2').order_by('-id')[0:7]
+    last7_brend = Article.objects.filter(tags='5').order_by('-id')[0:7]
 
     form = SubscribeForm()
     if request.method == 'POST':
@@ -362,5 +362,24 @@ def popular_article(request):
 
 
 def search(request):
+    last7_brend = Article.objects.filter(tags='5')[0:][:7]
 
-    return render(request, 'search.html')
+    form = SubscribeForm()
+    if request.method == 'POST':
+        subscribe_data = request.POST
+        form = SubscribeForm(data = subscribe_data)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Mesajınız qeydə alındı')
+            return HttpResponseRedirect('/')
+            print('Form save')
+        else:
+            print('Form is invalid')
+
+
+    context = {
+        'last7_brend': last7_brend,
+        'form': form
+    }
+
+    return render(request, 'search.html', context)

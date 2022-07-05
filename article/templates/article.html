@@ -50,7 +50,7 @@
     <img class="img-fluid" src="{{ i.image.url }}" alt="" data-pagespeed-url-hash="2585403232" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
     </div>
     <ul class="tags">
-    <li><a href="#">Lifestyle</a></li>
+    <li><a href="#">{{ i.tags }}</a></li>
     </ul>
     </div>
 
@@ -69,7 +69,7 @@
         <li><a href="#"><i style="margin-right: 6px;" class="fa-solid fa-eye"></i>{{ i.views }}</a></li>
         </ul> 
     <p class="excert">
-    {{i.descrtiption|truncatechars:150}}
+    {{i.descrtiption|safe|truncatechars:150}}
     </p>
     </div>
 

@@ -35,18 +35,18 @@
 
 <div class="feature-image-thumb relative">
 <div class="overlay overlay-bg"></div>
-<img class="img-fluid" src="{{ i.image.url }}" alt="" data-pagespeed-url-hash="4222329640" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+<img style="max-width: 1000px; height: 505px;  " class="img-fluid image1" src="{{ i.image.url }}" alt="" data-pagespeed-url-hash="4222329640" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
 </div>
 <div class="top-post-details">
 <ul class="tags">
-<li style="font-size: 18px;"><a href="#">{{ i.tags }}</a></li>
+<li style="font-size: 19px;"><a href="#">{{ i.tags }}</a></li>
 </ul>
 <a href="{{i.get_absolute_url}}">
 <h3>{{i.title}}</h3>
 </a>
 <ul class="meta">
-    <li><a href="#"><i style="margin-right: 6px;" class="fa-solid fa-calendar-days"></i>{{ i.created_at }}</a></li>
-    <li><a href="#"><i style="margin-right: 6px;" class="fa-solid fa-hourglass"></i> {{i.time}} dəqiqəlik xəbər </a></li>
+    <li class="w3-large"><a href="#"><i style="margin-right: 6px;" class=" fa-solid fa-calendar-days"></i>{{ i.created_at }}</a></li>
+    <li class="w3-large"><a href="#"><i style="margin-right: 6px;" class=" fa-solid fa-hourglass"></i> {{i.time}} dəqiqəlik xəbər </a></li>
     </ul>   
 </div>
 
@@ -72,10 +72,10 @@
     </div>
     <div class="top-post-details">
     <ul class="tags">
-    <li><a href="#">{{ i.tags }}</a></li>
+    <li style="font-size: 19px;" ><a href="#">{{ i.tags }}</a></li>
     </ul>
     <a href="{{i.get_absolute_url}}">
-    <h4>{{ i.title }} </h4>
+    <h4  >{{ i.title }} </h4>
     </a>
     <ul class="meta">
         <!-- <li><a href="#"><i style="margin-right: 6px;" class="fa-solid fa-eye"></i>{{ i.views }}</a></li> -->
@@ -99,7 +99,7 @@
 </div>
 <div class="top-post-details">
 <ul class="tags">
-<li><a href="#">{{ i.tags }}</a></li>
+<li style="font-size: 19px;"><a href="#">{{ i.tags }}</a></li>
 </ul>
 <a href="{{i.get_absolute_url}}">
 <h4>{{ i.title}} </h4>
@@ -164,7 +164,7 @@
 </div>
 <div class="col-lg-7 post-right">
 <a href="{{i.get_absolute_url}}">
-<h4>{{i.title|truncatechars:47 }}</h4>
+<h4 style="color: black;">{{i.title|truncatechars:47 }}</h4>
 </a>
 <ul class="meta">
 <li><a href="#"><i style="margin-right: 6px;" class="fa-solid fa-user"></i>{{i.owner}}</a></li>
@@ -172,8 +172,8 @@
 <!-- <li><a href="#"><i style="margin-right: 6px;" class="fa-solid fa-eye"></i></i>{{i.views}}</a></li> -->
 <li><a href="#"><i style="margin-right: 6px;" class="fa-solid fa-hourglass"></i> {{i.time}} dəqiqəlik məqalə </a></li>
 </ul>
-<p class="excert">
-{{i.descrtiption|truncatechars:150}}
+<p style="font-size: 18px;" class="excert">
+{{i.descrtiption|safe|truncatechars:190}}
 </p>
 </div>
 </div>
@@ -195,12 +195,12 @@
 
 
 <div class="col-lg-12 ad-widget-wrap mt-30 mb-30">
-<img class="img-fluid" src="../static/images/banner-ad.jpg" alt="" data-pagespeed-url-hash="2063517639" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+<img class="img-fluid" src="../static/images/1.png" alt="" data-pagespeed-url-hash="2063517639" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
 </div>
 
 
 <div class="popular-post-wrap">
-<h4 class="title">Ən çox oxunan məqalələr</h4>
+<h4 class="title">Ən Çox Oxunan Məqalələr</h4>
 
 {% for item in popular_list1 %}
 
@@ -247,7 +247,7 @@
 </div>
 <div class="details">
 <a style="max-width: 50px !important;" href="{{item.get_absolute_url}}">
-<h4 >{{ item.title|truncatechars:30 }}</h4>
+<h4 style="color: black;" >{{ item.title }}</h4>
 </a>
 <ul class="meta">
     <li><a href="#"><i style="margin-right: 6px;" class="fa-solid fa-user"></i>{{item.owner}}</a></li>
@@ -256,7 +256,7 @@
     <!-- <li><a href="#"><i style="margin-right: 6px;" class="fa-solid fa-eye"></i></i>{{item.views}}</a></li> -->
     </ul>
 <p class="excert">
-{{item.descrtiption|truncatechars:150}}
+{{item.descrtiption|safe|truncatechars:150}}
 </p>
 </div>
 
@@ -283,7 +283,7 @@
 </div>
 <div class="details">
 <a href="{{item.get_absolute_url}}">
-<h4>{{ item.title|truncatechars:30 }}</h4>
+<h4 style="color: black;" >{{ item.title  }}</h4>
 </a>
 <ul class="meta">
     <li><a href=""><i style="margin-right: 6px;" class="fa-solid fa-user"></i>{{item.owner}}</a></li>
@@ -291,7 +291,7 @@
     <li><a href="#"><i style="margin-right: 6px;" class="fa-solid fa-hourglass"></i> {{item.time}} dəqiqəlik məqalə </a></li>
     </ul>
 <p class="excert">
-    {{item.descrtiption|truncatechars:150}}</p>
+    {{item.descrtiption|safe|truncatechars:150}}</p>
 </div>
 
 

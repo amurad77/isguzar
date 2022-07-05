@@ -7,6 +7,8 @@ from django.utils.text import slugify
 from django.urls import reverse
 # from core.models import *
 from core.models import ArticleTags
+from tinymce import models as tinymce_models
+
 
 
 User = get_user_model()
@@ -19,8 +21,19 @@ class Article(models.Model):
     tags = models.ForeignKey(ArticleTags, on_delete = models.CASCADE)
 
     # information
+    detail_image = models.ImageField("Şekil", upload_to = 'media/news_images', null=True, blank=True)
+    detail_image2 = models.ImageField("Şekil2", upload_to = 'media/news_images', null=True, blank=True)
+    detail_image3 = models.ImageField("Şekil3", upload_to = 'media/news_images', null=True, blank=True)
+    detail_image4 = models.ImageField("Şekil4", upload_to = 'media/news_images', null=True, blank=True)
+    detail_image5 = models.ImageField("Şekil5", upload_to = 'media/news_images', null=True, blank=True)
+    detail_image6 = models.ImageField("Şekil6", upload_to = 'media/news_images', null=True, blank=True)
     title = models.CharField('Basliq', max_length = 50)
-    descrtiption = models.CharField('Məzmun', max_length = 500)
+    descrtiption = tinymce_models.HTMLField('Məzmun', max_length = 5000)
+    descrtiption2 = tinymce_models.HTMLField('Məzmun2', max_length = 5000, null=True, blank=True)
+    descrtiption3 = tinymce_models.HTMLField('Məzmun3', max_length = 5000, null=True, blank=True)
+    descrtiption4 = tinymce_models.HTMLField('Məzmun4', max_length = 5000, null=True, blank=True)
+    descrtiption5 = tinymce_models.HTMLField('Məzmun5', max_length = 5000, null=True, blank=True)
+    descrtiption6 = tinymce_models.HTMLField('Məzmun6', max_length = 5000, null=True, blank=True)
     slug = models.SlugField('Slug', max_length = 110, unique = True, editable = False)
     views = models.PositiveIntegerField(default = 0)
     image = models.ImageField("Şekil", upload_to = 'media/article_images', null=True, blank=True)

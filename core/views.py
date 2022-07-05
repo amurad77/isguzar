@@ -28,7 +28,7 @@ def home(request):
         else:
             print('Form is invalid')
 
-    last7_brend = Article.objects.filter(tags='2')[0:][:7]
+    last7_brend = Article.objects.filter(tags='5')[0:][:7]
     # print(last7_brend)
     career_center_home = CareerCenter.objects.all().order_by('-id')[:9]
     
@@ -114,13 +114,39 @@ def career_center_detail(request, slug):
 
 def searchbar(request):
 
+    last7_brend = Article.objects.filter(tags='5')[0:][:7]
+
+
+
+    form = SubscribeForm()
+    if request.method == 'POST':
+        subscribe_data = request.POST
+        form = SubscribeForm(data = subscribe_data)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Mesajınız qeydə alındı')
+            return HttpResponseRedirect('/')
+            print('Form save')
+        else:
+            print('Form is invalid')
+
+    context = {
+            'last7_brend': last7_brend,
+            'form': form,
+        }
+    
 
 
     if request.method == 'GET':
         search = request.GET.get('search')
         post = News.objects.all().filter(title__icontains=search)
 
-        return render(request, 'search.html', {'post' : post})
+        return render(request, 'search.html', {'post': post, 'last7_brend': last7_brend, 'form': form})
+
+   
+
+        
+    return render(request, 'search.html', context)
 
     
 

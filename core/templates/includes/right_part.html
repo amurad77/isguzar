@@ -22,16 +22,16 @@
 
 
         <div class="single-sidebar-widget most-popular-widget">
-            <h6 class="title">Son brend hekayələri</h6>
+            <h6 class="title">Uğur Hekayələri</h6>
 
             {% for i in last7_brend %}
             <div class="single-list flex-row d-flex">
             <div class="thumb">
-            <img style="width: 100px; height: 75px;" src="{{ i.image.url }}" alt="" data-pagespeed-url-hash="2510187219" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+            <img style="width: 170px; height: 110px;" src="{{ i.image.url }}" alt="" data-pagespeed-url-hash="2510187219" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
             </div>
             <div class="details">
             <a href="{{i.get_absolute_url}}">
-            <h6>{{ i.title|truncatechars:45 }}</h6>
+            <h6 style="color: black; font-size: 14px;" >{{ i.title|truncatechars:45 }}</h6>
             </a>
             <ul class="meta">
                 <li><a href="#"><i style="margin-right: 6px;" class="fa-solid fa-user"></i>{{i.owner}}</a></li>
@@ -47,8 +47,8 @@
 
 
     <div class="single-sidebar-widget newsletter-widget">
-        <h6 class="title">Bizə qoşulun</h6>
-        <p>
+        <h6 class="title">Bizə Qoşulun</h6>
+        <p style="font-size: 18px">
         Bizə qoşularaq iş elanlarından və son xebərlərdən xəbərdar olun
         </p>
         {% if submitted %}
@@ -95,7 +95,7 @@
   
 
     <div class="single-sidebar-widget social-network-widget">
-    <h6 class="title">Sosial şəbəkə</h6>
+    <h6 class="title">Sosial Şəbəkə</h6>
     <ul class="social-list">
     <li class="d-flex justify-content-between align-items-center fb">
     <div class="icons d-flex flex-row align-items-center">
