@@ -2,6 +2,8 @@ from django.db import models
 from datetime import datetime
 from django.urls import reverse
 from django.utils.text import slugify
+from tinymce import models as tinymce_models
+
 
 class ArticleTags(models.Model):
     tags = models.CharField('Tag', max_length = 50)
@@ -29,6 +31,7 @@ class CareerCenter(models.Model):
 
     # information
     logo = models.ImageField('Logo', upload_to = 'media/creer_center', null = True, blank = True)
+    descrtiption = tinymce_models.HTMLField('Məzmun', max_length = 15000)
     title = models.CharField('Basliq', max_length = 50)
     slug = models.SlugField('Slug', max_length = 110, unique = True, editable = False)
     company = models.CharField('Şirkət', max_length = 50)
@@ -61,17 +64,17 @@ class CareerCenter(models.Model):
         self.slug = self.get_uniqe_slug()
         return super(CareerCenter, self).save(*args, **kwargs)
 
-class DesiredFeautures(models.Model):
+# class DesiredFeautures(models.Model):
     #relation's
-    career_center = models.ForeignKey(CareerCenter, on_delete = models.CASCADE)
+    # career_center = models.ForeignKey(CareerCenter, on_delete = models.CASCADE)
 
-    desired_features = models.CharField('İstənilən Xüsusiyyətlər', max_length = 500)
-    # moderations
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    # desired_features = models.CharField('İstənilən Xüsusiyyətlər', max_length = 500)
+    # # moderations
+    # created_at = models.DateTimeField(auto_now_add=True)
+    # updated_at = models.DateTimeField(auto_now=True)
 
 
-    class Meta:
-        verbose_name = 'Kariyera merkezi istenilen xususiyyet'
-        verbose_name_plural = 'Kariyera merkezi istenilen xususiyyetler'
-        ordering = ('-created_at',)
+    # class Meta:
+    #     verbose_name = 'Kariyera merkezi istenilen xususiyyet'
+    #     verbose_name_plural = 'Kariyera merkezi istenilen xususiyyetler'
+    #     ordering = ('-created_at',)

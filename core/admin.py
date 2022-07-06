@@ -1,14 +1,14 @@
 from django.contrib import admin
-from .models import CareerCenter, DesiredFeautures, NewsTags, ArticleTags, CareerCenterCategory
+from .models import CareerCenter, NewsTags, ArticleTags, CareerCenterCategory
 # Register your models here.
 
 
 
-class DesiredFeauturesInline(admin.TabularInline):
-    model = DesiredFeautures
+# class DesiredFeauturesInline(admin.TabularInline):
+#     model = DesiredFeautures
 
 class CareerCenterAdmin(admin.ModelAdmin):
-    inlines = [DesiredFeauturesInline]
+    # inlines = [DesiredFeauturesInline]
     list_display = ('title', 'mail', 'created_at', 'updated_at')
     list_filter = ('mail', 'created_at', 'updated_at')
     search_fields = ('mail', 'created_at', 'updated_at')

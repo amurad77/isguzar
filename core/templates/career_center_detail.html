@@ -15,7 +15,7 @@
 
     
     <section class="top-post-area pt-10">
-    <div class="container no-padding">
+    <div class=" container no-padding">
     <div class="row">
     <div class="col-lg-12">
     <div class="hero-nav-area">
@@ -25,7 +25,7 @@
     </div>
     <div class="col-lg-12">
     <div class="news-tracker-wrap">
-    <h6><span>Breaking News:</span> <a href="">Kariyera mərkəzi ətraflı</a></h6>
+    <h6><span>   </span> <a href="">Kariyera mərkəzi ətraflı</a></h6>
     </div>
     </div>
     </div>
@@ -54,7 +54,7 @@
             <div class="mt-4" style="display: block;">
 
            <h4 class="mr-2" style="display: inline-block;">{{ career_center.company }}:</h4> 
-           <h5 style="display: inline-block; font-family: 'Hind Siliguri', sans-serif;">{{ career_center.mail }}</h5>
+           <h5 style="color: black; display: inline-block; font-family: 'Hind Siliguri', sans-serif;">{{ career_center.mail }}</h5>
             </div>
             <span> {{ career_center.adress }} </span>
         <ul class="meta ">
@@ -70,15 +70,15 @@
     <li><a href="https://preview.colorlib.com/theme/magazine/image-post.html#">Food Habit</a></li>
     </ul> -->
    
-    <h3 class="mb-4">İstənilən Xüsusiyyətlər</h3>
+    <h3 class="mb-4">İş haqqında məlumat: </h3>
     
     <ul class="a">
-        {% for i in desired_features %}
+        
         <li class="mb-2">
-        {{ i.desired_features }}
+        {{ career_center.descrtiption|safe }}
         </li>
 
-        {% endfor %}
+        
     </ul>
 
     

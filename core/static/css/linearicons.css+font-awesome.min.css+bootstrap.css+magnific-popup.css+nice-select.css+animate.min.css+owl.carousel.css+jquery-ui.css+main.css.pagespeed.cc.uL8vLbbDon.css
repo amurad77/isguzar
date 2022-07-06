@@ -10,9 +10,24 @@
 	font-style: normal;
 }
 
+.career_center{
+  background-image: url(../images/career.png);
+}
+
+.humanarticle{
+  background-image: url(../images/hr.png);
+}
+
+.scienenews{
+  background-image: url(../images/elm.png);
+}
+.designnews{
+  background-image: url(../images/dizayn.png);
+}
 
 .ekolojinews{
-  background-image: url(../images/ekoloji.jpg);
+  background-image: url(../images/eko.png);
+  opacity: 5.0;
 }
 
 
@@ -2731,7 +2746,7 @@ a, a:focus, a:hover {
 h1, h3,
 h4, h5, h6 {
   font-family: "Poppins", sans-serif;
-  color: #4a9efb;
+  color: black;
   line-height: 1.2em !important;
   margin-bottom: 0;
   margin-top: 0;
@@ -3025,7 +3040,7 @@ header {
 }
 
 .main-menu {
-  background: #4a9efb;
+  background: #0a5ca4;
   padding: 15px 20px;
   position: relative;
 }
@@ -3703,7 +3718,7 @@ body {
 .latest-post-area .latest-post-wrap .cat-title {
   font-size: 18px;
   font-weight: 600;
-  background: #4a9efb;
+  background: #0a5ca4;
   color: #fff;
   padding: 10px 25px;
 }
@@ -3821,7 +3836,7 @@ body {
 .popular-post-wrap .title {
   font-size: 18px;
   font-weight: 600;
-  background: #4a9efb;
+  background: #0a5ca4;
   color: #fff;
   padding: 10px 25px;
   margin-bottom: 20px;
@@ -4006,7 +4021,7 @@ body {
 .relavent-story-post-wrap .title {
   font-size: 18px;
   font-weight: 600;
-  background: #4a9efb;
+  background: #0a5ca4;
   color: #fff;
   padding: 10px 25px;
   margin-bottom: 20px;
@@ -4124,7 +4139,7 @@ body {
 
 .single-sidebar-widget .title {
   font-size: 18px;
-  background: #4a9efb;
+  background: #0a5ca4;
   color: #fff;
   padding: 12px 20px;
   margin-bottom: 20px;

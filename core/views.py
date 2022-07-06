@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, HttpResponseRedirect, re
 from news.models import News
 from comments.models import NewsComments
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from .models import CareerCenter, DesiredFeautures
+from .models import CareerCenter
 from article.models import Article
 from django.db.models import Q
 from comments.forms import NewsCommentForm
@@ -96,16 +96,16 @@ def career_center_detail(request, slug):
     career_center_related = CareerCenter.objects.all().order_by('-id')[:3]
 
     career_center = get_object_or_404(CareerCenter, slug = slug)
-    desired_features = DesiredFeautures.objects.filter(career_center = career_center)
+    # desired_features = DesiredFeautures.objects.filter(career_center = career_center)
     print(career_center)
-    print(desired_features)
+    # print(desired_features)
     views = career_center.views
     views += 1
     degis = CareerCenter.objects.filter(slug = slug).update(views = views)
 
     context = {
         'career_center_related' : career_center_related,
-        'desired_features' : desired_features,
+        # 'desired_features' : desired_features,
         'career_center' : career_center,
     }
     return render(request, 'career_center_detail.html', context)
