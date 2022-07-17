@@ -28,6 +28,8 @@ class Article(models.Model):
     detail_image5 = models.ImageField("Şekil5", upload_to = 'media/news_images', null=True, blank=True)
     detail_image6 = models.ImageField("Şekil6", upload_to = 'media/news_images', null=True, blank=True)
     title = models.CharField('Basliq', max_length = 50)
+    descrtiption_block = tinymce_models.HTMLField('Məzmun blok', max_length = 5000, null=True, blank=True)
+
     descrtiption = tinymce_models.HTMLField('Məzmun', max_length = 5000)
     descrtiption2 = tinymce_models.HTMLField('Məzmun2', max_length = 5000, null=True, blank=True)
     descrtiption3 = tinymce_models.HTMLField('Məzmun3', max_length = 5000, null=True, blank=True)
@@ -38,6 +40,7 @@ class Article(models.Model):
     views = models.PositiveIntegerField(default = 0)
     image = models.ImageField("Şekil", upload_to = 'media/article_images', null=True, blank=True)
     time = models.PositiveIntegerField('Neçə dəqiqəlik məqalə', default = 0)
+    is_article = models.BooleanField(default=True)
 
     # moderations
     is_published = models.BooleanField('is published', default=True)

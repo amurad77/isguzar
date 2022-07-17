@@ -184,7 +184,10 @@ def art_and_culture(request):
 
 
 def news_detail(request, slug):
-    # next = 
+    # a = get_object_or_404(News, title=slug)
+    # the_next = title.get_next_by_created_at()
+
+
 
 
     last7_brend = Article.objects.filter(tags='5').order_by('-id')[0:7]
@@ -202,6 +205,7 @@ def news_detail(request, slug):
 
 
     news = get_object_or_404(News, slug = slug)
+    # the_next = news.get_next_by_created_at()
     # article = get_object_or_404(Article, slug = slug)
     CommentForm = NewsCommentForm(request.POST or None)
 
@@ -212,22 +216,33 @@ def news_detail(request, slug):
         return HttpResponseRedirect(news.get_absolute_url())
     # a = NewsComments.objects.all()
     news_comments_count_detail = NewsComments.objects.filter(news=news)
+    
     print(news_comments_count_detail)
 
     views = news.views
     views += 1
     degis = News.objects.filter(slug = slug).update(views = views)
+    queryset = get_object_or_404(News, slug=slug)
+    
+    # the_next = queryset.get_next_by_created_at()
+     
+    # the_prev= queryset.get_previous_by_created_at()
 
+    
 
     context = {
+        # "the_next" : the_next,
+        # "the_prev": the_prev,
         'news_comments_count_detail' : news_comments_count_detail,
         'news' : news,
         'CommentForm' : CommentForm,
         'form': form,
-        'last7_brend': last7_brend
+        'last7_brend': last7_brend,
     }
+
     # print(news.comment.all())
     return render(request, 'detail_news.html', context)
+
 
 
 

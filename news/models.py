@@ -30,6 +30,7 @@ class News(models.Model):
     detail_image5 = models.ImageField("Şekil", upload_to = 'media/news_images', null=True, blank=True)
     detail_image6 = models.ImageField("Şekil", upload_to = 'media/news_images', null=True, blank=True)
     title = models.CharField('Basliq', max_length = 250)
+    descrtiption_block = tinymce_models.HTMLField('Məzmun blok', max_length = 5000, null=True, blank=True)
     descrtiption = tinymce_models.HTMLField('Məzmun', max_length = 5000, null=True, blank=True)
     descrtiption2 = tinymce_models.HTMLField('Məzmun', max_length = 5000, null=True, blank=True)
     descrtiption3 = tinymce_models.HTMLField('Məzmun', max_length = 5000, null=True, blank=True)

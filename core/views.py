@@ -124,8 +124,8 @@ def searchbar(request):
         form = SubscribeForm(data = subscribe_data)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Mesajınız qeydə alındı')
-            return HttpResponseRedirect('/')
+            # messages.success(request, 'Mesajınız qeydə alındı')
+            return HttpResponseRedirect('/')    
             print('Form save')
         else:
             print('Form is invalid')
@@ -137,16 +137,45 @@ def searchbar(request):
     
 
 
-    if request.method == 'GET':
-        search = request.GET.get('search')
-        post = News.objects.all().filter(title__icontains=search)
 
-        return render(request, 'search.html', {'post': post, 'last7_brend': last7_brend, 'form': form})
+    #search start
+
+    # if request.method == 'GET':
+
+    try:
+        search = request.GET.get('search')
+    except:
+        search = None
+
+    if search:
+        post = [
+                {'queryset': News.objects.filter(title__icontains=search)},
+                {'queryset': Article.objects.filter(title__icontains=search)},
+            ]
+        # print(News.objects.filter(title__icontains=search).count())
+        if News.objects.filter(title__icontains=search).count()==0 and Article.objects.filter(title__icontains=search).count() == 0:
+            print("********************************************************************")
+            ok = 'Təəssüf ki tapılmadı...'
+            context['ok'] = ok
+        context['post'] = post
+
+    # else:
+    #     messages.success(request, 'O deyil qaqa')
+
+    print('-----------------------------------------------------------------------')
+    print(post)
+    print('-----------------------------------------------------------------------')
+
+
+       
+    
+
+    #search end
+    return render(request, 'search.html', context)
 
    
 
         
-    return render(request, 'search.html', context)
 
     
 

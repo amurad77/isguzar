@@ -10,6 +10,13 @@
 	font-style: normal;
 }
 
+
+
+.authform{
+  font-size: 20px !important;
+}
+
+
 .career_center{
   background-image: url(../images/career.png);
 }
@@ -3044,6 +3051,12 @@ header {
   padding: 15px 20px;
   position: relative;
 }
+
+.main-menu > div{
+  display: flex;
+  justify-content: space-between;
+}
+
 @media (max-width: 993px) {
 
   .search{
@@ -3096,7 +3109,7 @@ header {
 
 .nav-menu li {
   position: relative;
-  white-space: nowrap;
+  /* white-space: nowrap; */
 }
 
 .nav-menu > li {
@@ -4384,19 +4397,19 @@ body {
 }
 
 .social-network-widget .social-list .fb {
-  background: #4c63a2;
+  background: #000000;
 }
 
 .social-network-widget .social-list .tw {
-  background: #69c9ff;
+  background: #000000;
 }
 
 .social-network-widget .social-list .yt {
-  background: #c41713;
+  background: #000000;
 }
 
 .social-network-widget .social-list .rs {
-  background: #f17300;
+  background: #000000;
 }
 
 .social-network-widget .social-list .icons {
@@ -4416,18 +4429,18 @@ body {
 }
 
 .social-network-widget .social-list .icons .fa-facebook {
-  color: #4c63a2;
-  background: #fff;
+  color: #ffffff;
+  background: rgb(0, 0, 0);
 }
 
 .social-network-widget .social-list .icons .fa-twitter {
-  color: #69c9ff;
-  background: #fff;
+  color: #ffffff;
+  background: rgb(0, 0, 0);
 }
 
 .social-network-widget .social-list .icons .fa-youtube-play {
-  color: #c41713;
-  background: #fff;
+  color: #ffffff;
+  background: rgb(0, 0, 0);
 }
 
 .social-network-widget .social-list .icons .fa-rss {
@@ -4517,6 +4530,44 @@ body {
   background: #4a9efb;
   color: #fff;
 }
+
+
+@media (min-width: 992px) {
+  .mobile_search{
+    display: none;
+  }
+  
+  
+  }
+
+
+  @media (max-width: 990px) {
+    .mobile_search{
+      display: inline-block;
+      justify-content: end !important;
+    }
+    
+    }
+  
+
+
+@media (max-width: 990px) {
+  .icon_delete{
+    display: block;
+  }
+  
+  }
+
+
+
+@media (max-width: 1200px) {
+.icon_delete{
+  display: none;
+}
+
+}
+
+
 
 @media (max-width: 991px) {
   .service-area .single-service {

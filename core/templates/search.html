@@ -68,8 +68,8 @@
     {% if post %}
 {{error}}
 
-
-{%  for i in post %}
+{%  for j in post %}
+        {% for i in j.queryset %}
 <div class="col-lg-5 post-left" style="margin-bottom: 15px;">
     <div class="feature-img relative">
     <div class="overlay overlay-bg"></div>
@@ -82,7 +82,11 @@
 
 
     <div class="col-lg-7 post-right">
+        {% if i.is_article == True%}
+    <a href="/article_detail/{{i.slug}}">
+        {% else %}
     <a href="/news_detail/{{i.slug}}">
+    {% endif %}
     <h4> {{i.title|truncatechars:40 }} </h4>
     </a>
     <ul class="meta">
@@ -91,17 +95,23 @@
         <li><a href="#"><i style="margin-right: 6px;" class="fa-solid fa-comment"></i>06 Comments</a></li>
         </ul> 
     <p class="excert">
-        {{i.descrtiption|truncatechars:150|safe}}
+        {{i.descrtiption_block  |truncatechars:150|safe}}
     </p>
     </div>
+    {% endfor %}
     {% endfor %}
 
     {% else %}
 
 
     
-    <h4 style="margin-left: 30px;" >  Təəssüf ki tapılmadı...  </h4>
+    
     {% endif %}
+
+
+    
+    
+    <h4 style="margin-left: 30px;" >   {{ok}}  </h4>
     
     
     
