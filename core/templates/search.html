@@ -71,9 +71,9 @@
 {%  for j in post %}
         {% for i in j.queryset %}
 <div class="col-lg-5 post-left" style="margin-bottom: 15px;">
-    <div class="feature-img relative">
+    <div class="feature-img relative indexnewsimage">
     <div class="overlay overlay-bg"></div>
-    <img class="img-fluid" src=" {{ i.image.url }}   " alt="" data-pagespeed-url-hash="2585403232" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+    <img style="height: 185px;" class="img-fluid indexnewsimage" src=" {{ i.image.url }}   " alt="" data-pagespeed-url-hash="2585403232" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
     </div>
     <ul class="tags">
     <li><a href="#">{{i.tags}}</a></li>

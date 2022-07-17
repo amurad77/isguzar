@@ -4536,6 +4536,7 @@ body {
   .mobile_search{
     display: none;
   }
+
   
   
   }
@@ -4546,8 +4547,24 @@ body {
       display: inline-block;
       justify-content: end !important;
     }
+
+  .indexnewsimage{
+    height: 505px !important;
+  }
     
     }
+
+
+    @media (max-width: 767px) {
+
+      .indexnewsimage{
+        height: 300px !important;
+      }
+
+
+    }
+
+
   
 
 
