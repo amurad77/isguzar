@@ -16,17 +16,43 @@
         {% csrf_token %}
 
 
-    <h1 style="text-align: center; margin-top: 5px;">Yazarımız ol!</h1>
+    <h1 class="authortitle" style="text-align: left; margin-top: 50px; font-size: 60px; margin-bottom: 40px;">Yazarımız ol!</h1>
+
+
+
+
+
+      <p class="authortitle" style="margin-bottom: 30px; font-size: 27px; "> Müraciət etməzdən əvvəl aşağıdakı detalları nəzərdən keçirməyiniz xahiş olunur.  </p>
+
+
+
+      <ul style="margin-left: 50px; width: 80%; margin-bottom: 50px; " >
+       <div style="display: flex;"> <i style="padding-top: 5px; margin-right: 20px;" class="fa-solid fa-circle"></i> <li class="authortitle" style="font-size: 22px; margin-bottom: 20px;"> Təqdim olunan məzmunun təsdiq edilib-edilməməsi tamamilə redaktorlarımızın ixtiyarındadır.    </li></div>
+       <div style="display: flex;"> <i style="padding-top: 5px; margin-right: 20px;" class="fa-solid fa-circle"></i> <li class="authortitle" style="font-size: 22px;">  Müəlliflik sistemi könüllük əsasındadır,  peşəkar biznes deyil. Bizim  komandamıza qoşulmaqla siz öz ideyalarınızı daha geniş auditoriyaya çatdıra və öz yazılarınızı peşəkar həyatda yayımlaya bilərsiniz. </li> <div></div>
+      </ul>
+
+
+
+
+
+
+
+      <p> <i style="color: red; " class="fa-solid fa-asterisk"></i>  İşarəsi olan sahələr tələb olunur</p>
+
+        <h5 style="margin-bottom: 5px; margin-left: 5px;">Ad və Soyad <i style="color: red; font-size: 10px;" class="fa-solid fa-asterisk"></i></h5>
         {{ form.name }}
     <!-- <input style="margin-top: 15px;" name="name" placeholder="Ad ve Soyad" onfocus="this.placeholder = &#39;&#39;" onblur="this.placeholder = &#39;Ad ve Soyad&#39;" class="common-input mb-20 form-control" required="" type="text"> -->
+    <h5 style="margin-bottom: 5px; margin-left: 5px;">E-Mail Adresi <i style="color: red; font-size: 10px;" class="fa-solid fa-asterisk"></i></h5>
 
     {{ form.email }}
     <!-- <input name="name" placeholder="E-Mail adres" onfocus="this.placeholder = &#39;&#39;" onblur="this.placeholder = &#39;E-Mail adres&#39;" class="common-input mb-20 form-control" required="" type="text"> -->
 
+    <h5 style="margin-bottom: 5px; margin-left: 5px;">Telefon <i style="color: red; font-size: 10px;" class="fa-solid fa-asterisk"></i></h5>
 
     {{ form.phone }}
     <!-- <input name="name" placeholder="Telefon" onfocus="this.placeholder = &#39;&#39;" onblur="this.placeholder = &#39;Telefon&#39;" class="common-input mb-20 form-control" required="" type="text"> -->
 
+    <h5 style="margin-bottom: 5px; margin-left: 5px;">Hazırda nə işəyirsiniz ?<i style="color: red; font-size: 10px;" class="fa-solid fa-asterisk"></i></h5>
 
         {{form.working_status}}
     <!-- <select style="margin-bottom: 15px;" class="custom-select" id="inputGroupSelect01">
@@ -35,12 +61,15 @@
         <option value="2">Tələbəyəm</option>
         <option value="3">Işləmirəm</option>
       </select> -->
-      
+      <h5 style="margin-bottom: 5px; margin-left: 5px;">Təhsil və Sənayə təcrübəniz <i style="color: red; font-size: 10px;" class="fa-solid fa-asterisk"></i></h5>
+
       {{form.education_industry}}
     <!-- <input name="name" placeholder="Təhsil və sənayə təcrübəniz'" onfocus="this.placeholder = &#39;&#39;" onblur="this.placeholder = &#39;Təhsil və sənayə təcrübəniz&#39;" class="common-input mb-20 form-control" required="" type="text"> -->
+    <h5 style="margin-bottom: 5px; margin-left: 5px;">Hansı mövzuda yaza bilərsiniz ? <i style="color: red; font-size: 10px;" class="fa-solid fa-asterisk"></i></h5>
 
     {{form.subjects}}
     <!-- <input name="name" placeholder="Hansı mövzuda yaza bilərsiniz?" onfocus="this.placeholder = &#39;&#39;" onblur="this.placeholder = &#39;Hansı mövzuda yaza bilərsiniz?&#39;" class="common-input mb-20 form-control" required="" type="text"> -->
+    <h5 style="margin-bottom: 5px; margin-left: 5px;">Nə qədər vaxtdan bir məzmun təqdim edə bilərsiniz? </h5>
 
       {{form.time}}
 

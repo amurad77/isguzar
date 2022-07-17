@@ -64,7 +64,7 @@ class Author(models.Model):
     working_status = models.CharField('Hal hazırda işləyirsiniz? (Nə?)', max_length = 150)
     education_industry = models.CharField('Təhsil və sənayə təcrübəniz',  max_length = 150)
     subjects = models.CharField('Hansı mövzuda yaza bilərsiniz?',  max_length = 150)
-    time = models.CharField('Nə qədər vaxtdan bir məzmun təqdim edə bilərsiniz?',  max_length = 150)
+    time = models.CharField('Nə qədər vaxtdan bir məzmun təqdim edə bilərsiniz?', blank = True, null = True, max_length = 150)
 
     # moderations
     created_at = models.DateTimeField(auto_now_add=True)

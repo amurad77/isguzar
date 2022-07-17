@@ -111,9 +111,29 @@
 
     
     
-    <h4 style="margin-left: 30px;" >   {{ok}}  </h4>
+    <h4 style="margin-left: 115px;"  >   {{ok}}  </h4>
     
     
+  <nav aria-label="Page navigation example" style="margin-top: 25px;">
+    <ul class="pagination justify-content-center">
+        <li class="page-item ">
+          {% if page_obj.has_previous %}
+        <a class="page-link" href="?page={{ page_obj.previous_page_number }}" >Previous</a>
+        {% endif %}
+    </li>
+
+      <li class="page-item"><span class="page-link" >{{ page_obj.number }}</span></li>
+      <span style="margin-right: 7px; margin-left: 7px; margin-top: 5px;">of</span>
+      <li class="page-item"><span class="page-link" >{{ page_obj.paginator.num_pages }}</span></li> 
+      <li class="page-item">
+        {% if page_obj.has_next %}
+
+        <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+        {% endif %}
+
+      </li>
+    </ul>
+  </nav>
     
 </div>
 

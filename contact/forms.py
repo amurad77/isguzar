@@ -88,39 +88,39 @@ class AuthorForm(forms.ModelForm):
         widgets = {
             'name': forms.TextInput(attrs={
                                     'class': 'authform common-input mb-20 form-control',
-                                    'placeholder': 'Enter your name',
+                                    # 'placeholder': 'Enter your name',
                                     'id': 'value'
                                     
                                 }),
             'email': forms.EmailInput(attrs={
                                     'class': 'authform common-input mb-20 form-control',
-                                    'placeholder': 'Enter email address',
+                                    # 'placeholder': 'Enter email address',
                                     'id': 'value1'
                                     
                                 }),
             'phone': forms.TextInput(attrs={
                                     'class': 'authform common-input mb-20 form-control',
-                                    'placeholder': 'Telefon',
+                                    # 'placeholder': 'Telefon',
                                     'id': 'value2'
                                 }),
             'working_status': forms.TextInput(attrs={
                                     'class': 'authform common-input mb-20 form-control',
-                                    'placeholder': 'Hal hazırda işləyirsiniz? (Nə?)',
+                                    # 'placeholder': 'Hal hazırda işləyirsiniz? (Nə?)',
                                     'id': 'value2'
                                 }),
             'education_industry': forms.Textarea(attrs={
-                                    'class': 'setSEFSDGsdfSDFsetSEFSDGsdfSDF common-input mb-20 form-control',
-                                    'placeholder': 'Təhsil və sənayə təcrübəniz',
+                                    'class': 'authform common-input mb-20 form-control',
+                                    # 'placeholder': 'Təhsil və sənayə təcrübəniz',
                                     'id': 'value2'
                                 }),
             'subjects': forms.Textarea(attrs={
                                     'class': 'authform common-input mb-20 form-control',
-                                    'placeholder': 'Hansı mövzuda yaza bilərsiniz?',
+                                    # 'placeholder': 'Hansı mövzuda yaza bilərsiniz?',
                                     'id': 'value2'
                                 }),
             'time': forms.TextInput(attrs={
                                     'class': 'authform common-input mb-20 form-control',
-                                    'placeholder': 'Nə qədər vaxtdan bir məzmun təqdim edə bilərsiniz?',
+                                    # 'placeholder': 'Nə qədər vaxtdan bir məzmun təqdim edə bilərsiniz?',
                                     'id': 'value2'
                                 }),
         }

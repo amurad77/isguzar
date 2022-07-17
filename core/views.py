@@ -130,6 +130,10 @@ def searchbar(request):
         else:
             print('Form is invalid')
 
+
+
+
+
     context = {
             'last7_brend': last7_brend,
             'form': form,
@@ -149,18 +153,37 @@ def searchbar(request):
 
     if search:
         post = [
-                {'queryset': News.objects.filter(title__icontains=search)},
-                {'queryset': Article.objects.filter(title__icontains=search)},
+                {'queryset': News.objects.filter(title__icontains=search).order_by('-id')},
+                {'queryset': Article.objects.filter(title__icontains=search).order_by('-id')},
             ]
         # print(News.objects.filter(title__icontains=search).count())
         if News.objects.filter(title__icontains=search).count()==0 and Article.objects.filter(title__icontains=search).count() == 0:
+
+        
+
+        
             print("********************************************************************")
             ok = 'Təəssüf ki tapılmadı...'
             context['ok'] = ok
         context['post'] = post
 
+    page_num = request.GET.get('page', 1)
+
+    paginator = Paginator(post, 5) # 6 employees per page
+ 
+
+    try:
+        page_obj = paginator.page(page_num)
+    except PageNotAnInteger:
+        # if page is not an integer, deliver the first page
+        page_obj = paginator.page(1)
+    except EmptyPage:
+        # if the page is out of range, deliver the last page
+        page_obj = paginator.page(paginator.num_pages)
     # else:
     #     messages.success(request, 'O deyil qaqa')
+    context['page_obj'] = page_obj
+
 
     print('-----------------------------------------------------------------------')
     print(post)

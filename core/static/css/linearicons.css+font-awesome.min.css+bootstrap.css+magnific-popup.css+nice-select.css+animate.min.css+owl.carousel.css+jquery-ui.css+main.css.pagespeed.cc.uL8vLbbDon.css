@@ -10,7 +10,16 @@
 	font-style: normal;
 }
 
+.authortitle{
+  font-family: 'Varela Round', sans-serif;
+}
 
+
+
+.socialicon{
+  font-size: 20px;
+  margin-right: 5px;
+}
 
 .authform{
   font-size: 20px !important;
