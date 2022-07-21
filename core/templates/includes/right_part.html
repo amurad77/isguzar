@@ -46,39 +46,51 @@
 
 
 
+
+            
+
     <div class="single-sidebar-widget newsletter-widget">
         <h6 class="title">Bizə Qoşulun</h6>
-        <p style="font-size: 18px">
-        Bizə qoşularaq iş elanlarından və son xebərlərdən xəbərdar olun
-        </p>
         {% if submitted %}
         <p class="success">
             Gonderdin gaga
-        </p>
-        {% else %}
+        </p>{% else %}
         <form action="" method="POST">
-        {% csrf_token %}
-        
-        <div class="form-group d-flex flex-row">
-        <div class="col-autos">
-        <div class="input-group">
-            {{ form.email }}
+            {% csrf_token %}
+
+
+        <div style="height: 270px; width: 319px; background-color: #8ca1fb;">
+            <h6 style="color: white; text-align: center; font-size: 30px; padding-top: 5px; text-shadow: 2px 2px rgb(85, 83, 83);">Bizə Qoşulun</h6>
+            <i style="margin-left: 100px; font-size: 110px; color: white; margin-top: 10px;" class="fa-solid fa-envelope"></i>
+            <p class="authortitle" style="text-align: center; color: white; font-size: 18px; margin-left: 5px; margin-right: 5px; margin-top: -5px;">Qeydiyyatdan keçin son xəbərdən və iş elanlarından xəbərdar olun</p>
+            <!-- <input type="text"> -->
+            <div style="display: flex; margin-left: 12px; margin-right: 12px;">
+            {{form.email}}         
+            
+            <button style="height: 40px; background-color: #526efa;" type="submit" class="primary-btn text-uppercase"> Göndər</button>
         </div>
         </div>
-        
         {% endif %}
-        
-        
-        
-        <button type="submit" class="primary-btn text-uppercase"> Göndər</button>
-        
-        </div>
+
         </form>
+
         {% for message in messages %}
         
-        <p class="text-success">{{message}}</p>
+        <p class="text-success">{{message}}</p>        
+
         
         {% endfor %}
+
+
+
+
+
+
+
+
+
+
+        
         </div>
 
 

@@ -24,7 +24,7 @@ def contact(request):
     return render(request, 'contact.html', context)
 
 
-def author(request):
+def tobe_author(request):
     submitted = False
 
     form = AuthorForm()
@@ -35,10 +35,10 @@ def author(request):
             form.save()
             messages.success(request, 'Mesajınız qeydə alındı')
             print('Form save')
-            return HttpResponseRedirect('/author?submitted=True')
+            return HttpResponseRedirect('/tobe_author?submitted=True')
         else:
             print('Form is invalid')
     context = { 
         'form':form
     }
-    return render(request, 'author.html', context)
+    return render(request, 'tobe_author.html', context)

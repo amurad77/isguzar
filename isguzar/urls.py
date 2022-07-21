@@ -23,12 +23,13 @@ from core.views import (
     career_center,
     career_center_detail,
     searchbar,
+    author
     
 )
 
 from contact.views import (
 contact,
-author
+tobe_author
 )
 
 from news.views import (
@@ -61,6 +62,7 @@ urlpatterns = [
     path('news_detail/<slug:slug>/', news_detail, name = 'detail_news'),
     path('news/', news),
     path('author/', author),
+    path('tobe_author/', tobe_author),
     path('article/', article),
     path('category/marketing_articles', marketing),
     path('category/brand_stories_articles', brand_stories),

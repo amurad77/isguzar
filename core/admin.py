@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import CareerCenter, NewsTags, ArticleTags, CareerCenterCategory
+from .models import UserProfile, CareerCenter, NewsTags, ArticleTags, CareerCenterCategory
 # Register your models here.
 
-
+admin.site.register (UserProfile)
 
 # class DesiredFeauturesInline(admin.TabularInline):
 #     model = DesiredFeautures

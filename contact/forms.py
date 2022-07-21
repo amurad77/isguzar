@@ -179,8 +179,8 @@ class SubscribeForm(forms.ModelForm):
         widgets = {
 
             'email': forms.EmailInput(attrs={
-                                    'class': 'common-input mb-20 form-control',
-                                    'placeholder': 'E-poçt ünvanınızı daxil edin',
+                                    'class': 'subscribeform common-input mb-20 form-control',
+                                    'placeholder': 'E-poçt ünvanınız: ',
                                     'id': 'value1'
                                     
                                 })

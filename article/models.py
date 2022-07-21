@@ -6,7 +6,7 @@ from django.utils.text import slugify
 # from isguzar.commons import slugify
 from django.urls import reverse
 # from core.models import *
-from core.models import ArticleTags
+from core.models import ArticleTags, UserProfile
 from tinymce import models as tinymce_models
 
 
@@ -17,7 +17,7 @@ User = get_user_model()
 
 class Article(models.Model):
     # relation's
-    owner =  models.ForeignKey(User, on_delete=models.CASCADE, related_name='article')
+    owner =  models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name='article')
     tags = models.ForeignKey(ArticleTags, on_delete = models.CASCADE)
 
     # information

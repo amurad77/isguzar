@@ -9,6 +9,7 @@ from comments.forms import NewsCommentForm
 from contact.forms import SubscribeForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from .models import UserProfile
 
 # from core.forms import SubscribeForm
 # Create your views here.
@@ -61,6 +62,14 @@ def home(request):
 
 
     }
+
+    # print("-------------------------------------------------------------------------------")
+
+    # print(User.objects.all())
+
+
+
+    # print("-------------------------------------------------------------------------------")
     return render(request, 'index.html', context)
 
 def career_center(request):
@@ -196,7 +205,15 @@ def searchbar(request):
     #search end
     return render(request, 'search.html', context)
 
-   
+
+def author(request):
+    user = UserProfile.objects.all().order_by('-id')
+    # print(user.image)
+    context = {
+        'user': user,
+    }
+    
+    return render(request, 'author.html', context)
 
         
 

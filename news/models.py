@@ -6,20 +6,16 @@ from django.utils.text import slugify
 # from isguzar.commons import slugify
 from django.urls import reverse
 from article.models import *
-from core.models import NewsTags
+from core.models import NewsTags, UserProfile
 
 
 from tinymce import models as tinymce_models
 # Create your models here.
 
 
-User = get_user_model()
-
-
-
 class News(models.Model):
     # relation
-    owner =  models.ForeignKey(User, on_delete = models.CASCADE, related_name='news')
+    owner =  models.ForeignKey(UserProfile, on_delete = models.CASCADE, related_name='news')
     tags = models.ForeignKey(NewsTags, on_delete = models.CASCADE)
 
     # information

@@ -10,3 +10,4 @@ class NewsAdmin(admin.ModelAdmin):
     search_fields = ('descrtiption', 'created_at', 'updated_at')
 
 admin.site.register (News, NewsAdmin)
+

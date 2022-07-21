@@ -1,0 +1,70 @@
+
+
+{% extends "base.html" %}
+
+
+{% load static %}
+   
+
+
+
+
+{% block content %}
+
+
+
+
+
+
+<div>
+    {% for userprofile in userprofile %}
+    <img src="{{userprofile.image.url}}" alt="Author 1">
+    {% endfor %}
+
+
+    <div class="_edge_bottom">
+        <div>
+            <h1>İşgüzar Yazarları</h1>
+            <p>İşgüzar'da məqalə yazan edən komanda ilə tanış olun.</p>
+        </div>
+    </div>
+
+    <main id="_wrapper">
+        <div class="_row">
+
+            {% for i in user %}
+            
+            
+            <div class="_card">
+                <div>
+                    <a href="#">
+                        <img src="{{i.image.url}}" alt="Author 1">
+
+                    </a>
+                    <div class="_card_body">
+                        <a href="#">
+                            <h5>{{i.name_surname}}</h5>
+                        </a>
+                        <span>Kurucu</span>
+                        <div class="_card_links">
+                            <a href="{{i.linkedin}}" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="{{i.twitter}}" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="{{i.facebook}}" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            {% endfor %}tags
+
+
+        </div>
+    </main>
+
+</div>
+
+
+
+
+{% endblock %}
