@@ -207,10 +207,33 @@ def searchbar(request):
 
 
 def author(request):
+        
+
     user = UserProfile.objects.all().order_by('-id')
+
+
+
+        
+    page_num = request.GET.get('page', 1)
+
+    paginator = Paginator(user, 5) # 6 employees per page
+
+    try:
+        page_obj = paginator.page(page_num)
+    except PageNotAnInteger:
+        # if page is not an integer, deliver the first page
+        page_obj = paginator.page(1)
+    except EmptyPage:
+        # if the page is out of range, deliver the last page
+        page_obj = paginator.page(paginator.num_pages)
+
+
+
     # print(user.image)
     context = {
-        'user': user,
+        'user': page_obj.object_list,
+        'page_obj': page_obj,
+
     }
     
     return render(request, 'author.html', context)
@@ -218,19 +241,42 @@ def author(request):
 
 def author_detail(request, slug):
 
+    
+
+
 
 
     auth = get_object_or_404(UserProfile, slug = slug)
-    article = Article.objects.filter(owner = auth)
+    article = Article.objects.filter(owner = auth).order_by('-id')
 
     queryset = get_object_or_404(UserProfile, slug=slug)
     print('-----------------------------------  ')
     print(auth)
     print(article)
 
+
+
+
+    page_num = request.GET.get('page', 1)
+
+    paginator = Paginator(article, 1) # 6 employees per page
+
+    try:
+        page_obj = paginator.page(page_num)
+    except PageNotAnInteger:
+        # if page is not an integer, deliver the first page
+        page_obj = paginator.page(1)
+    except EmptyPage:
+        # if the page is out of range, deliver the last page
+        page_obj = paginator.page(paginator.num_pages)
+
+
+
+
     context = {
+        'page_obj': page_obj,
         'auth': auth,
-        'article': article
+        'article': page_obj.object_list
     }
 
 
