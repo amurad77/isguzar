@@ -15,14 +15,33 @@ class UserProfile(models.Model):
     name_surname = models.CharField('Ad və Soyad', max_length = 256)
     image = models.ImageField("Şekil", upload_to = 'media/admin_image', null=True, blank=True)
     work = models.CharField('İş', max_length = 256)
+    descrtiption = models.CharField('Haqqında', max_length = 1000)
     linkedin = models.CharField('Linkedin', max_length = 256, null=True, blank=True)
     twitter = models.CharField('Twitter', max_length = 256, null=True, blank=True)
     facebook = models.CharField('Facebook', max_length = 256, null=True, blank=True)
+    slug = models.SlugField('Slug', max_length = 110, unique = True, editable = False)
 
 
 
     def __str__(self):
         return self.name_surname
+
+
+    def get_absolute_url(self):
+        return reverse('author_detail', kwargs = {'slug': self.slug})
+
+    def get_uniqe_slug(self):
+        slug = slugify(self.name_surname.replace('ə', 'e'))
+        unique_slug = slug
+        counter = 1
+        while UserProfile.objects.filter(slug = unique_slug).exists():
+            unique_slug = '{}-{}'.format(slug, counter)
+            counter += 1
+        return unique_slug
+
+    def save(self, *args, **kwargs):
+        self.slug = self.get_uniqe_slug()
+        return super(UserProfile, self).save(*args, **kwargs)
 
 
 

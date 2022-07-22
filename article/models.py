@@ -19,7 +19,7 @@ class Article(models.Model):
     # relation's
     owner =  models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name='article')
     tags = models.ForeignKey(ArticleTags, on_delete = models.CASCADE)
-
+    
     # information
     detail_image = models.ImageField("Şekil", upload_to = 'media/news_images', null=True, blank=True)
     detail_image2 = models.ImageField("Şekil2", upload_to = 'media/news_images', null=True, blank=True)

@@ -17,9 +17,6 @@
 
 
 <div>
-    {% for userprofile in userprofile %}
-    <img src="{{userprofile.image.url}}" alt="Author 1">
-    {% endfor %}
 
 
     <div class="_edge_bottom">
@@ -42,27 +39,46 @@
 
                     </a>
                     <div class="_card_body">
-                        <a href="#">
+                        <a href="{{i.get_absolute_url}}">
                             <h5>{{i.name_surname}}</h5>
                         </a>
-                        <span>Kurucu</span>
+                        <span>{{i.work}}</span>
                         <div class="_card_links">
+                            {% if i.linkedin %}
                             <a href="{{i.linkedin}}" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                            {% endif %}
+
+                            {% if i.twitter %}
                             <a href="{{i.twitter}}" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                            {% endif %}
+
+                            {% if i.facebook %}
                             <a href="{{i.facebook}}" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
             </div>
 
 
-            {% endfor %}tags
+            {% endfor %}
 
 
         </div>
     </main>
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -9,7 +9,7 @@ from comments.forms import NewsCommentForm
 from contact.forms import SubscribeForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .models import UserProfile
+from .models import UserProfile, User
 
 # from core.forms import SubscribeForm
 # Create your views here.
@@ -215,7 +215,25 @@ def author(request):
     
     return render(request, 'author.html', context)
 
-        
+
+def author_detail(request, slug):
+
+
+
+    auth = get_object_or_404(UserProfile, slug = slug)
+    # article = Article.objects.filter(owner = auth)
+
+    queryset = get_object_or_404(UserProfile, slug=slug)
+    print('-----------------------------------  ')
+    print(auth)
+    # print(article)
+
+    context = {
+        'auth': auth
+    }
+
+
+    return render(request, 'author_detail.html', context)
 
     
 

@@ -222,7 +222,7 @@ def news_detail(request, slug):
     views = news.views
     views += 1
     degis = News.objects.filter(slug = slug).update(views = views)
-    queryset = get_object_or_404(News, slug=slug)
+    # queryset = get_object_or_404(News, slug=slug)
     
     # the_next = queryset.get_next_by_created_at()
      
