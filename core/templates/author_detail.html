@@ -64,22 +64,26 @@
                 <h2>Yazıları</h2>
                 <a href="#" class="_mobile_follow_btn"><i class="fa-solid fa-circle-plus"></i> Takip Et</a>
             </div>
+            {% for i in article %}
+
             <div class="_post">
                 <div class="_post_body">
-                    <a href="#" class="_post_category">Yatırım</a>
-                    <a href="#" class="_post_title"><h3>Webrazzi, Avrupa'nın önde gelen teknoloji medyası Londra merkezli Tech.eu'yu satın aldı</h3></a>
-                    <p class="_post_content">Bugün sizlerle bizim için olduğu kadar sizler…</p>
+                    <a href="#" class="_post_category">{{i.tags}}</a>
+                    <a href="#" class="_post_title"><h3>{{i.title|safe}}</h3></a>
+                    <p class="_post_content">{{i.descrtiption_block|safe|truncatechars:200}}</p>
                     <div class="_post_info">
-                        <p class="_author_name"><a href="#">Arda Kutsal</a></p>
-                        <p class="_post_date"><i class="fa-solid fa-circle"></i> 07 Ekim 2021</p>
+                        <p class="_author_name"><a href="#">{{i.owner}}</a></p>
+                        <p class="_post_date"><i class="fa-solid fa-circle"></i> {{i.created_at}}</p>
                     </div>
                 </div>
                 <div class="_post_image">
                     <a href="#">
-                        <img src="{% static 'images/post1.png' %}" alt="Post 1">
+                        <img src="{{i.image.url}}" alt="Post 1">
                     </a>
                 </div>
             </div>
+            {% endfor %}
+
         </div>
     </main>
     
@@ -87,7 +91,7 @@
     </div   >
 
 
-    {{ auth.article.all }}
+
 
 
 {% endblock %}

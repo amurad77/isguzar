@@ -221,15 +221,16 @@ def author_detail(request, slug):
 
 
     auth = get_object_or_404(UserProfile, slug = slug)
-    # article = Article.objects.filter(owner = auth)
+    article = Article.objects.filter(owner = auth)
 
     queryset = get_object_or_404(UserProfile, slug=slug)
     print('-----------------------------------  ')
     print(auth)
-    # print(article)
+    print(article)
 
     context = {
-        'auth': auth
+        'auth': auth,
+        'article': article
     }
 
 
