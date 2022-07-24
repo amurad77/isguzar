@@ -28,8 +28,8 @@ def home(request):
             print('Form save')
         else:
             print('Form is invalid')
-
-    last7_brend = Article.objects.filter(tags='5')[0:][:7]
+    last5_success = Article.objects.filter(tags='6').order_by('-id')[0:][:5]
+    last7_brend = Article.objects.filter(tags='5').order_by('-id')[0:][:5]
     # print(last7_brend)
     career_center_home = CareerCenter.objects.all().order_by('-id')[:9]
     
@@ -58,7 +58,8 @@ def home(request):
         'form' : form,
         'news_comments_count' : news_comments_count,
         'career_center_home' : career_center_home,
-        'last7_brend': last7_brend
+        'last7_brend' : last7_brend,
+        'last5_success' : last5_success
 
 
     }
@@ -122,6 +123,7 @@ def career_center_detail(request, slug):
 
 
 def searchbar(request):
+    last5_success = Article.objects.filter(tags='6').order_by('-id')[0:][:5]
 
     last7_brend = Article.objects.filter(tags='5')[0:][:7]
 
@@ -145,6 +147,7 @@ def searchbar(request):
 
     context = {
             'last7_brend': last7_brend,
+            'last5_success': last5_success,
             'form': form,
         }
     

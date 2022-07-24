@@ -55,11 +55,11 @@ def marketing(request):
     return render(request, 'marketing.html', context)
 
 
-def brand_stories(request):
+def success_stories(request):
     last7_brend = Article.objects.filter(tags='5').order_by('-id')[0:7]
-    brand_stories = Article.objects.filter(tags='5')
+    success_stories = Article.objects.filter(tags='5')
     print('----------------------------------------------------------------------------------')
-    print(brand_stories)
+    print(success_stories)
     print('----------------------------------------------------------------------------------')
 
     form = SubscribeForm()
@@ -76,7 +76,7 @@ def brand_stories(request):
 
     page_num = request.GET.get('page', 1)
 
-    paginator = Paginator(brand_stories, 5) # 6 employees per page
+    paginator = Paginator(success_stories, 5) # 6 employees per page
 
     try:
         page_obj = paginator.page(page_num)
@@ -88,13 +88,13 @@ def brand_stories(request):
         page_obj = paginator.page(paginator.num_pages)
 
     context = {
-        'brand_stories' : brand_stories,
+        'success_stories' : success_stories,
         'page_obj': page_obj,
         'form': form,
         'last7_brend': last7_brend
     }
 
-    return render(request, 'brand_stories.html', context)
+    return render(request, 'success_stories.html', context)
 
 
 def human_resources(request):
@@ -221,6 +221,52 @@ def health(request):
     }
 
     return render(request, 'health.html', context)
+
+
+def book_summary(request):
+    last7_brend = Article.objects.filter(tags='5').order_by('-id')[0:7]
+    book_summary = Article.objects.filter(tags='6')
+    print('----------------------------------------------------------------------------------')
+    print(book_summary)
+    print('----------------------------------------------------------------------------------')
+
+    form = SubscribeForm()
+    if request.method == 'POST':
+        subscribe_data = request.POST
+        form = SubscribeForm(data = subscribe_data)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Mesajınız qeydə alındı')
+            return HttpResponseRedirect('/')
+            print('Form save')
+        else:
+            print('Form is invalid')
+
+    page_num = request.GET.get('page', 1)
+
+    paginator = Paginator(book_summary, 5) # 6 employees per page
+
+    try:
+        page_obj = paginator.page(page_num)
+    except PageNotAnInteger:
+        # if page is not an integer, deliver the first page
+        page_obj = paginator.page(1)
+    except EmptyPage:
+        # if the page is out of range, deliver the last page
+        page_obj = paginator.page(paginator.num_pages)
+
+    context = {
+        'book_summary' : book_summary,
+        'page_obj': page_obj,
+        'form': form,
+        'last7_brend': last7_brend
+    }
+
+    return render(request, 'book_summary.html', context)
+
+
+
+
 
 
 

@@ -17,7 +17,7 @@ from django.contrib.auth.decorators import login_required
 
 def business(request):
     last7_brend = Article.objects.filter(tags='5').order_by('-id')[0:7]
-    business_news = News.objects.filter(tags='2')
+    business_news = News.objects.filter(tags='1')
     print('----------------------------------------------------------------------------------')
     print(business_news)
     print('----------------------------------------------------------------------------------')
@@ -59,7 +59,7 @@ def business(request):
 
 def sciene_and_technology(request):
     last7_brend = Article.objects.filter(tags='5').order_by('-id')[0:7]
-    sciene_and_technology_news = News.objects.filter(tags='1')
+    sciene_and_technology_news = News.objects.filter(tags='2')
     print('----------------------------------------------------------------------------------')
     print(sciene_and_technology_news)
     print('----------------------------------------------------------------------------------')
@@ -141,11 +141,11 @@ def design_and_innovation(request):
     return render(request, 'design_and_innovation.html', context)
 
 
-def art_and_culture(request):
+def ecology(request):
     last7_brend = Article.objects.filter(tags='5').order_by('-id')[0:7]
-    art_and_culture_news = News.objects.filter(tags='4')
+    ecology_news = News.objects.filter(tags='4')
     print('----------------------------------------------------------------------------------')
-    print(art_and_culture_news)
+    print(ecology_news)
     print('----------------------------------------------------------------------------------')
 
     form = SubscribeForm()
@@ -162,7 +162,7 @@ def art_and_culture(request):
 
     page_num = request.GET.get('page', 1)
 
-    paginator = Paginator(art_and_culture_news, 5) # 6 employees per page
+    paginator = Paginator(ecology_news, 5) # 6 employees per page
 
     try:
         page_obj = paginator.page(page_num)
@@ -174,13 +174,73 @@ def art_and_culture(request):
         page_obj = paginator.page(paginator.num_pages)
 
     context = {
-        'art_and_culture' : art_and_culture_news,
+        'ecology' : ecology_news,
         'page_obj': page_obj,
         'form': form,
         'last7_brend': last7_brend
     }
 
-    return render(request, 'art_and_culture.html', context)
+    return render(request, 'ecology.html', context)
+
+
+def day_of_the_week(request):
+    last5_success = Article.objects.filter(tags='6').order_by('-id')[0:][:5]
+    last7_brend = Article.objects.filter(tags='5').order_by('-id')[0:7]
+    day_of_the_week_news = News.objects.filter(tags='5')
+    print('----------------------------------------------------------------------------------')
+    print(day_of_the_week_news)
+    print('----------------------------------------------------------------------------------')
+
+    form = SubscribeForm()
+    if request.method == 'POST':
+        subscribe_data = request.POST
+        form = SubscribeForm(data = subscribe_data)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Mesajınız qeydə alındı')
+            return HttpResponseRedirect('/')
+            print('Form save')
+        else:
+            print('Form is invalid')
+
+    page_num = request.GET.get('page', 1)
+
+    paginator = Paginator(day_of_the_week_news, 5) # 6 employees per page
+
+    try:
+        page_obj = paginator.page(page_num)
+    except PageNotAnInteger:
+        # if page is not an integer, deliver the first page
+        page_obj = paginator.page(1)
+    except EmptyPage:
+        # if the page is out of range, deliver the last page
+        page_obj = paginator.page(paginator.num_pages)
+
+    context = {
+        'day_of_the_week' : day_of_the_week_news,
+        'page_obj': page_obj,
+        'form': form,
+        'last7_brend': last7_brend,
+        'last5_success': last5_success
+    }
+
+    return render(request, 'day_of_the_week.html', context)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 def news_detail(request, slug):
@@ -244,9 +304,8 @@ def news_detail(request, slug):
     return render(request, 'detail_news.html', context)
 
 
-
-
 def news(request):
+    last5_success = Article.objects.filter(tags='6').order_by('-id')[0:][:5]
 
     last7_brend = Article.objects.filter(tags='5').order_by('-id')[0:7]
     form = SubscribeForm()
@@ -281,7 +340,8 @@ def news(request):
         'news': page_obj.object_list,
         'page_obj': page_obj,
         'form': form,
-        'last7_brend': last7_brend
+        'last7_brend': last7_brend,
+        'last5_success': last5_success
     }
     return render (request, 'news.html', context)
 

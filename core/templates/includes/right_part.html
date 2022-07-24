@@ -31,7 +31,7 @@
             </div>
             <div class="details">
             <a href="{{i.get_absolute_url}}">
-            <h6 style="color: black; font-size: 14px;" >{{ i.title|truncatechars:45 }}</h6>
+            <h6 style="color: black; font-size: 14px;" >{{ i.title|truncatechars:40 }}</h6>
             </a>
             <ul class="meta">
                 <li><a href="#"><i style="margin-right: 6px;" class="fa-solid fa-user"></i>{{i.owner}}</a></li>
@@ -59,15 +59,15 @@
             {% csrf_token %}
 
 
-        <div style="height: 270px; width: 319px; background-color: #8ca1fb;">
-            <h6 style="color: white; text-align: center; font-size: 30px; padding-top: 5px; text-shadow: 2px 2px rgb(85, 83, 83);">Bizə Qoşulun</h6>
+        <div style="height: 300px; width: 319px; background-color: #27aaeb;">
+            <h6 style="color: white; text-align: center; font-size: 30px; padding-top: 5px; text-shadow: 1px 1px rgb(85, 83, 83);">İşgüzar Büllüten</h6>
             <i style="margin-left: 100px; font-size: 110px; color: white; margin-top: 10px;" class="fa-solid fa-envelope"></i>
-            <p class="authortitle" style="text-align: center; color: white; font-size: 18px; margin-left: 5px; margin-right: 5px; margin-top: -5px;">Qeydiyyatdan keçin son xəbərdən və iş elanlarından xəbərdar olun</p>
+            <p class="authortitle" style="text-align: center; color: white; font-size: 18px; margin-left: 5px; margin-right: 5px; margin-top: -5px;">Qeydiyyatdan keçin son xəbərlərdən və karyera elanlarından xəbərdar olun</p>
             <!-- <input type="text"> -->
             <div style="display: flex; margin-left: 12px; margin-right: 12px;">
             {{form.email}}         
             
-            <button style="height: 40px; background-color: #526efa;" type="submit" class="primary-btn text-uppercase"> Göndər</button>
+            <button style="height: 40px; background-color: #0b5ca4;" type="submit" class="primary-btn text-uppercase"> Göndər</button>
         </div>
         </div>
         {% endif %}
@@ -94,7 +94,10 @@
         </div>
 
 
-    <a href="/author">
+        <hr>
+
+
+    <a href="/tobe_author">
     <div class="single-sidebar-widget ads-widget">
     <img class="img-fluid" src="{% static 'images/SəndəYaz.png' %}" alt="" data-pagespeed-url-hash="3321942762" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
     </div>
@@ -107,7 +110,7 @@
   
 
     <div class="single-sidebar-widget social-network-widget">
-    <h6 class="title">Sosial Şəbəkə</h6>
+    <h6 class="title">Bizi İzləyin</h6>
     <ul class="social-list">
     <li class="d-flex justify-content-between align-items-center fb">
     <div class="icons d-flex flex-row align-items-center">
@@ -151,6 +154,44 @@
     </ul>
     </div>
 
+
+
+
+
+
+
+
+
+    <div class="single-sidebar-widget most-popular-widget">
+        <h6 class="title">Kitab Xülasələri</h6>
+
+        {% for i in last5_success %}
+        <div class="single-list flex-row d-flex">
+        <div class="thumb">
+        <img style="width: 170px; height: 110px;" src="{{ i.image.url }}" alt="" data-pagespeed-url-hash="2510187219" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+        </div>
+        <div class="details">
+        <a href="{{i.get_absolute_url}}">
+        <h6 style="color: black; font-size: 14px;" >{{ i.title|truncatechars:50 }}</h6>
+        </a>
+        <ul class="meta">
+            <li><a href="#"><i style="margin-right: 6px;" class="fa-solid fa-user"></i>{{i.owner}}</a></li>
+            <li><a href="#"><i style="margin-right: 6px;" class="fa-solid fa-calendar-days"></i>{{i.created_at|date:"d M Y"}}</a></li>
+            </ul>
+        </div>
+        </div>
+        {% endfor %}
+        
+      
+        </div>
+
+
+<hr>
+        <a href="/contact">
+            <div class="single-sidebar-widget ads-widget">
+            <img class="img-fluid" src="{% static 'images/yazar.png' %}" alt="" data-pagespeed-url-hash="3321942762" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+            </div>
+        </a>
 
     </div>
     </div>

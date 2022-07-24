@@ -39,7 +39,8 @@ from news.views import (
     business,
     sciene_and_technology,
     design_and_innovation,
-    art_and_culture
+    ecology,
+    day_of_the_week
 )
 from article.views import (
     article,
@@ -47,10 +48,11 @@ from article.views import (
     search,
     popular_article,
     marketing,
-    brand_stories,
+    success_stories,
     human_resources,
     logistics,
-    health
+    health,
+    book_summary
 )
 
 urlpatterns = [
@@ -67,7 +69,8 @@ urlpatterns = [
     path('tobe_author/', tobe_author),
     path('article/', article),
     path('category/marketing_articles', marketing),
-    path('category/brand_stories_articles', brand_stories),
+    path('category/success_stories_articles', success_stories),
+    path('category/book_summary_articles', book_summary),
     path('category/human_resources_articles', human_resources),
     path('category/logistics_articles', logistics),
     path('category/health_articles', health),
@@ -79,7 +82,9 @@ urlpatterns = [
     path('category/business_news/', business),
     path('category/sciene_and_technology_news', sciene_and_technology),
     path('category/design_and_innovation_news', design_and_innovation),
-    path('category/art_and_culture_news', art_and_culture)
+    path('category/ecology_news', ecology),
+    path('category/day_of_the_week_news', day_of_the_week)
+
     
 
 
